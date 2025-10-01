@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio7</title>
+    <script>
+        let nota = Number(prompt("Escribe tu nota en números"));
+        if (nota === 0) {
+            document.write("NO PRESENTADO");
+        } else if (nota < 5) {
+            document.write("SUSPENSO");
+        } else if (nota === 5 && nota < 6) {
+            document.write("BIEN");
+        } else if (nota >= 7 && nota < 9) {
+            document.write("NOTABLE");
+        } else if (nota >= 9 && nota <= 10) {
+            document.write("SOBRESALIENTE");
+        } else {
+            document.write("<p style='color: red'>Error al introducir la nota</p>");
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

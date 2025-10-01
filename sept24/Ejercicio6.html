@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 6</title>
+    <script>
+        let preg1 = prompt("¿Cuánto llevas contigo?");
+        let preg2, preg3;
+        if (Number(preg1) === 50) {
+            preg2 = prompt("¿Eres sincero?");
+        }
+        if (!preg2) {
+            preg3 = prompt("¿Qué responderías si te pregunto si puedes entrar en mayúsculas?")
+        }
+        if (preg3.toLowerCase() === "sí" || preg3.toLowerCase() === "si") {
+            alert("Puedes entrar")
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
