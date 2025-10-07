@@ -6,7 +6,7 @@ let numUsuario = Number(prompt("Introduce un número del 1 al 10"));
 if (isNaN(numUsuario) || numUsuario < 1 || numUsuario > 10) {
     alert("Número fuera de rango o valor incorrecto")
 } else {
-    let numAleatorio = Math.floor(Math.random() * 11)
+    let numAleatorio = Math.floor(Math.random() * 10) + 1
     console.log(numAleatorio)
     if (numAleatorio === numUsuario) {
         alert("¡Has ganado!")
