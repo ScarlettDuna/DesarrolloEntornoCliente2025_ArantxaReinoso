@@ -7,10 +7,12 @@ let descuento = parseFloat(prompt("Introduce el porcentaje de descuento, en deci
  Validar que los dos valores sean números válidos.
  Convertir los valores a tipo numérico real.
  Calcular el precio final aplicando el descuento.
+ Redondear el resultado final a 2 decimales (con la función que
+automáticamente calcula el valor más cercano).
  Mostrar los errores o el resultado final con alert. */
 if (isNaN(precio) || isNaN(descuento) || precio < 0 || descuento < 0) {
     alert("Datos introducidos no válidos");
 } else {
-    let precio_final = precio - (precio *(descuento / 100))
+    let precio_final = (precio - (precio *(descuento / 100))).toFixed(2)
     alert(`Precio inicial: ${precio}€ \nDescuento: ${descuento}%. \nEl precio final es ${precio_final}€`)
 }

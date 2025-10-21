@@ -24,19 +24,17 @@ let diaMiliS = 86400000
 let hoy = Date.now()
 for (let fecha of fechas){
     let fechaActual = new Date(fecha);
+    let en5dias = new Date(fechaActual);
+    en5dias.setDate(fechaActual.getDate() +  5)
     if (isNaN(fechaActual))  continue;
     else {
-        console.log(`La diferencia entre hoy y el ${fechaActual.getDate()} de ${fechaActual.getMonth()} de ${fechaActual.getFullYear()} es de ${Math.round((hoy - fechaActual.getTime()) / diaMiliS)} días.`)
+        console.log(`La diferencia entre hoy y el ${fechaActual.getDate()} de ${fechaActual.getMonth() +1} de ${fechaActual.getFullYear()} es de ${Math.round((hoy - fechaActual.getTime()) / diaMiliS)} días.`);
+        /* Sumar 5 días a la fecha introducida y mostrar el resultado */
+        console.log(`Si sumamos 5 días al ${fechaActual.getDate()} de ${fechaActual.getMonth() + 1} de ${fechaActual.getFullYear()} da el ${en5dias.getDate()} de ${en5dias.getMonth() + 1} de ${en5dias.getFullYear()}.`)
+        /* Verificar si cada fecha es en fin de semana. */
+        if (fechaActual.getDay() === 5 || fechaActual.getDay() === 6) console.log(`El ${fechaActual.toLocaleDateString()} era fin de semana.`);
+        // Verificar si cada hora transcurre entre las 00:00 y las 08:00.
+        if (fechaActual.getHours() >= 0 || fechaActual.getHours() <= 8) console.log(`El ${fechaActual.toLocaleDateString()} tiene una hora registrada entre las 00:00 y las 08:00.`)
     }
-    
 }
-/* Sumar 5 días a la fecha introducida y mostrar el resultado */
-for (let fecha of fechas){
-    let fechaActual = new Date(fecha);
-    let en5dias = new Date(fechaActual.getTime + diaMiliS * 5);
-    if (isNaN(fechaActual))  continue;
-    else {
-        console.log(`Si sumamos 5 días al ${fechaActual.getDate()} de ${fechaActual.getMonth() + 1} de ${fechaActual.getFullYear()} da el ${en5dias.getDate()} de ${en5dias.getMonth()} de ${en5dias.getFullYear()}.`)
-    }
     
-}
