@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+    <style>
+        .resaltado {
+        background-color: yellow;
+        font-weight: bold;
+        padding: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo">Bienvenido/a</h1>
+    <p class="descripcion">Este es un texto de prueba.</p>
+    <div class="contenedor">
+    <p class="resaltado">Este párrafo está dentro de un contenedor.</p>
+    </div>
+</body>
+<script>
+    let textoh1 = prompt("Escribe el colo que deseas poner para el h1: red, blue, pink...")
+    let titulo = document.getElementById("titulo");
+    titulo.style.color = textoh1;
+    let resaltamos = confirm("¿Desea resaltar el texto del párrafo de descripción?")
+    let parrafo = document.querySelectorAll("p");
+    if (resaltamos) {
+
+    }
+</script>
+</html>

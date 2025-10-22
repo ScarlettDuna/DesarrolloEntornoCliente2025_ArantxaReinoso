@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+    <h2>Nombre del alumno</h2>
+    <p id="notaFinal">Resultado de la evaluación: </p>
+    <div class="mensaje"></div>
+</body>
+<script>
+    let nombreApellidos = prompt("Introduce tu nombre y tu apellido");
+    let nota = prompt("Introduce tu nota (número del 0 al 10)");
+    while (isNaN(nota) || nota < 0 || nota > 10) {
+        nota = prompt("Introduce tu nota (número del 0 al 10)");
+    }
+    // En etiqueta h2 se añade el nombre del alumno.
+    let h2 = document.querySelector("h2");
+    h2.innerText = nombreApellidos;
+    // En el párrafo con identificador “notaFinal” se añade una etiqueta strong con el texto
+    let notaFinal = document.getElementById("notaFinal");
+    notaFinal.innerHTML = `<strong>Nota: ${nota}`;
+    // En el div con la clase mensaje se muestra un texto indicando si la nota es SUSPENSO (menor que 5), APROBADO (entre 5 y 6), BIEN (de 6 a 7),
+    // NOTABLE (de 7 a 9) y SOBRESALIENTE (de 9 en adelante).
+    let mensaje = document.querySelector(".mensaje");
+    let calificacion = "";
+    if (nota >= 9) calificacion = "SOBRESALIENTE";
+    if (nota >= 7 && nota < 9) calificacion = "NOTABLE";
+    if (nota >= 6 && nota < 7) calificacion = "BIEN";
+    if (nota >= 5 && nota < 6) calificacion = "APROBADO";
+    if (nota < 5) calificacion = "SUSPENSO";
+    console.log(calificacion)
+    mensaje.textContent = calificacion;
+</script>
+</html>
