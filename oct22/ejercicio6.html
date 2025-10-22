@@ -26,7 +26,8 @@
     let resaltamos = confirm("¿Desea resaltar el texto del párrafo de descripción?")
     let parrafo = document.querySelectorAll("p");
     if (resaltamos) {
-
+        parrafo[0].classList.toggle("resaltado");
+        parrafo[1].classList.toggle("resaltado");
     }
 </script>
 </html>
