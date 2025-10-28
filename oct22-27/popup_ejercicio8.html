@@ -10,6 +10,7 @@
 </body>
 <script>
     let bottonCerrar = document.getElementById("cerrar");
+    window.opener.postMessage("Hello from child window", "*");
     bottonCerrar.addEventListener("click", ()=> window.close())
 </script>
 </html>

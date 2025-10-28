@@ -27,5 +27,9 @@
                 }
             }
         }) 
+    window.addEventListener("message", (event) => {
+        console.log(event.data);
+        window.frames[0].document.body.innerHTML = `<p>${event.data}</p>`;
+        });
 </script>
 </html>
