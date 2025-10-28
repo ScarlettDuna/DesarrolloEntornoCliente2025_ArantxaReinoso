@@ -3,25 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicio 8</title>
 </head>
 <body>
     <h2>Ventana Principal</h2>
     <iframe src="" frameborder="0" style="border: 1px, solid, black; width: 300px; height: 150px;"></iframe>
     <br>
+    <label for="texto">Introduce tu nombre:</label>
     <input type="text" id="texto">
     <button type="button">Enviar</button>
 </body>
 <script>
     let input_texto = document.getElementById("texto");
     let boton = document.querySelector("button");
-    if (!input_texto.value.trim()) {
-        alert("Tiene que rellenar el campo");
-    } else {
-        boton.onclick = function (){window.open("./popup_ejercicio8.html?nombre={input_texto.value}");}
-        
-    }
-    
-
+        boton.addEventListener("click", () => {
+            if (!input_texto.value.trim()) {
+                alert("Tiene que rellenar el campo");
+            } else {
+                let newWin = window.open("./popup_ejercicio8.html");
+                newWin.onload = () => {
+                    let html = `<h2> Hola, ${input_texto.value}</h2>`;
+                    newWin.document.body.insertAdjacentHTML("afterbegin", html);
+                }
+            }
+        }) 
 </script>
 </html>
