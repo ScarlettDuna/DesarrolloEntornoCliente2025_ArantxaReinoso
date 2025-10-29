@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+    <script>
+        let A = document.getElementById("num1").value;
+        let B = document.getElementById("num2");
+        let btn = document.getElementById("btn");
+        let suma = document.getElementsByClassName("suma");
+        let resta = document.getElementsByClassName("resta");
+        let multiplicacion = document.getElementsByClassName("multiplicacion");
+        let division = document.getElementsByClassName("division");
+        let factorialA = document.getElementsByClassName("factorialA");
+        let factorialB = document.getElementsByClassName("factorialB");
+
+        function suma(num1, num2) {
+            return num1 + num2;
+        }
+        function resta(num1,num2) {
+            return num1- num2;
+        }
+        function multiplicacion(num1, num2) {
+            return num1 * num2;
+        }
+        function dividir(num1, num2) {
+            if (num2 !== 0) {
+                return num1 / num2;
+            } else {
+                return "Números no divisibles."
+            }
+            
+        }
+        function factorial(num) {
+            let factorial = 1;
+            if (num === 0 || num === 1) {
+                return 1;
+            } else {
+                for(let i = num; i > 0; i-- ) {
+                    factorial = factorial * i;
+                }
+                return factorial;
+            }
+        }
+        btn.addEventListener("click", () => {
+            suma.textContent = suma(A, B);
+            resta.textContent = resta(A, B);
+            multiplicacion.textContent = multiplicacion(A,B)
+            division.textContent = division(A, B);
+            factorialA.textContent = factorial(A);
+            factorialB.textContent = factorial(B);
+        });
+
+    </script>
+</head>
+<body>
+    <h1>Matemáticas con A y B</h1>
+    <label for="num1">Introduce un número</label>
+    <input type="number" name="num1" id="num1">
+    <br>
+    <label for="num1">Introduce otro número</label>
+    <input type="number" name="num1" id="num1">
+    <br>
+    <button type="button" id="btn">Calcular</button>
+    <div>
+        <p>Suma: <span class="suma"></span></p>
+        <p>Resta: <span class="resta"></span></p>
+        <p>Multiplicación: <span class="multiplicacion"></span></p>
+        <p>División: <span class="division"></span></p>
+        <h1>Factorial de A: <span class="factorialA"></span></h1>
+        <h1>Factorial de B: <span class="factorialB"></span></h1>
+        
+    </div>
+    
+</body>
+</html>

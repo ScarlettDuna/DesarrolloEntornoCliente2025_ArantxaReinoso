@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 2</title>
+	<meta charset="utf-8" />
+	<script>
+		//Pedir por teclado un texto
+        let palabra = prompt("Introduce una palabra para tu cadena de palabras.");
+        let cadena = "Cadena de palabras: ";
+        while (palabra.toLowerCase() !== "cancelar") {
+            cadena = cadena + " - " + palabra;
+            palabra = prompt("Introduce otra palabra para añadir a la cadena o 'cancelar' para terminar.")
+        }
+		
+		alert(cadena)
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

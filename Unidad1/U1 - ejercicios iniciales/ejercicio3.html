@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio3</title>
+	<meta charset="utf-8" />
+	<script>
+		//Pedir por teclado un texto
+		let numero = prompt("Introduce un número entre 0 y 99999999.");
+        numero = Number(numero)
+        let letras = ["T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"]
+        let dni = "";
+        if (typeof(numero) === 'number') {
+            let index = numero % 23;
+            dni = numero + letras[index];
+        } else {
+            alert("Debes introducir un número entre 0 y 99999999.")
+        }
+		
+		// Para mostrar un diálogo en la pantalla del navegador
+		alert(dni);
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
