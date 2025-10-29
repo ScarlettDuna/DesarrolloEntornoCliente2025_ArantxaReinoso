@@ -6,9 +6,12 @@
     <title>Ejercicio 6</title>
     <style>
         .resaltado {
-        background-color: yellow;
-        font-weight: bold;
-        padding: 4px;
+            background-color: yellow;
+            font-weight: bold;
+            padding: 4px;
+        }
+        .oculto {
+            color:white ;
         }
     </style>
 </head>
@@ -24,10 +27,14 @@
     let titulo = document.getElementById("titulo");
     titulo.style.color = textoh1;
     let resaltamos = confirm("¿Desea resaltar el texto del párrafo de descripción?")
+    let oculto = confirm("Desea ocultar el segundo párrafo?")
     let parrafo = document.querySelectorAll("p");
     if (resaltamos) {
         parrafo[0].classList.toggle("resaltado");
         parrafo[1].classList.toggle("resaltado");
+    }
+    if (oculto) {
+        parrafo[1].classList.toggle("oculto");
     }
 </script>
 </html>
