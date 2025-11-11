@@ -6,11 +6,13 @@
     <title>Ejercicio 8 - pop up</title>
 </head>
 <body>
-    <button id="cerrar">Cerrar ventana</button>
+    <button id="cerrar">Cerrar ventana y enviar mensaje</button>
 </body>
 <script>
     let bottonCerrar = document.getElementById("cerrar");
-    window.opener.postMessage("Hello from child window", "*");
-    bottonCerrar.addEventListener("click", ()=> window.close())
+    bottonCerrar.addEventListener("click", ()=> {
+        window.opener.postMessage("¡Adiós desde la ventana hija!", "*");
+        window.close()
+        })
 </script>
 </html>

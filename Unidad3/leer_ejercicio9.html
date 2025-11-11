@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leer Cookies - Ejercicio 9</title>
+
+</head>
+<body>
+    <h1>Bienvenido/a</h1>
+
+    <p></p>
+    <button type="submit" id="borrarCookies">Borrar cookies</button>
+</body>
+<script>
+    function leerCookie(nombre){
+        let cookies = document.cookie.split(";")
+        for (let c of cookies){
+            let cadenaActual = c.trim().split("=");
+            if (cadenaActual[0] === nombre){
+                return decodeURIComponent(cadenaActual[1]);
+            }
+        }
+        return null;
+    }
+    
+    let nombre = leerCookie("nombre");
+    let edad = leerCookie("edad");
+
+    let p = document.querySelector('p');
+
+    if (nombre && edad){
+        p.innerText = `Hola ${nombre}. Tienes ${edad} años`;
+    } else {
+        p.innerHTML= "No se encontraron cookies. <a href='./ejercicio9.html'>Regresa a la página anterior</a>"
+    }
+    let boton = document.querySelector("button");
+    boton.addEventListener("click", (e) => {
+        document.cookie = "nombre=; max-age=-1; path=/";
+        document.cookie = "edad=; max-age=-1; path=/";
+        alert("Cookies borradas");
+        window.location.reload();
+    })
+</script>
+</html>

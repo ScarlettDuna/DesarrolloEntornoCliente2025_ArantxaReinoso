@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Ventana Principal</h2>
-    <iframe src="" frameborder="0" style="border: 1px, solid, black; width: 300px; height: 150px;"></iframe>
+    <iframe frameborder="0" style="border: 1px, solid, black; width: 300px; height: 150px;"></iframe>
     <br>
     <label for="texto">Introduce tu nombre:</label>
     <input type="text" id="texto">
@@ -20,7 +20,9 @@
             if (!input_texto.value.trim()) {
                 alert("Tiene que rellenar el campo");
             } else {
-                let newWin = window.open("./popup_ejercicio8.html");
+                let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
+                width=350,height=350,left=-1000,top=-1000`;
+                let newWin = window.open("./popup_ejercicio8.html", "test", params);
                 newWin.onload = () => {
                     let html = `<h2> Hola, ${input_texto.value}</h2>`;
                     newWin.document.body.insertAdjacentHTML("afterbegin", html);
