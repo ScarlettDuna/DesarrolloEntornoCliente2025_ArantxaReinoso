@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bienvenido/a</h1>
+
+    <p></p>
+    <button type="submit" id="borrarCookies">Borrar datos</button>    
+</body>
+<script>    
+    let nombre = localStorage.getItem("nombre");
+    let edad = localStorage.getItem("edad");
+
+    let p = document.querySelector('p');
+
+    if (nombre && edad){
+        p.innerText = `Hola ${nombre}. Tienes ${edad} años`;
+    } else {
+        p.innerHTML= "No se encontraron datos en el local storage. <a href='./crear_ejercicio10.html'>Regresa a la página anterior</a>"
+    }
+    let boton = document.querySelector("button");
+    boton.addEventListener("click", (e) => {
+        localStorage.removeItem('nombre')
+        localStorage.removeItem('edad')
+        alert("Datos borrados");
+        window.location.reload();
+    })
+</script>
+</html>

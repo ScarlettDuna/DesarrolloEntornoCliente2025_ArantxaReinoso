@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 9</title>
-    
+    <title>Ejercicio 10</title>
 </head>
 <body>
     <h1>Introduce tus datos</h1>
@@ -12,7 +11,7 @@
     <input type="text" name="nombre" id="nombre"><br>
     <label for="edad">Edad</label>
     <input type="number" name="edad" id="edad"><br>
-    <button>Guardar y continuar</button>
+    <button>Guardar y continuar</button>    
 </body>
 <script>
     let boton = document.querySelector("button");
@@ -20,16 +19,13 @@
         let nombre = document.getElementById("nombre").value.trim();
         let edad = document.getElementById("edad").value.trim();
         if (nombre && edad && !isNaN(edad)) {
-            let mycookie1 = "nombre=" + encodeURIComponent(nombre) + ";" + "max-age=300" + "; path=/";
-            let mycookie2 = "edad=" + encodeURIComponent(edad) + ";" + "max-age=300" + "; path=/";
-            console.log(mycookie1 + " " + mycookie2)
-            document.cookie = mycookie1;
-            document.cookie = mycookie2
-            window.location.href = "leer_ejercicio9.html";
+            localStorage.setItem('nombre', nombre)
+            localStorage.setItem('edad', edad)
+            alert( localStorage.getItem('nombre') + localStorage.getItem('edad'))
+            window.location.href = "leer_ejercicio10.html";
         } else {
             alert("Introduce datos válidos, por favor.")
         }
-        
     })
 </script>
 </html>
