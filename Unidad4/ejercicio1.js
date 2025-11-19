@@ -43,3 +43,15 @@ parrafoOutput2.innerText += `Objeto Alumno\n`
 mostrarObjeto(alumno, parrafoOutput2)
 parrafoOutput2.innerText += `Objeto clon de Alumno modificado\n`;
 mostrarObjeto(clonAlumno, parrafoOutput2)
+
+// Ejercicio 3
+alumno.incrementarStats = function (tipo, n) {
+    if (typeof n === "number" && this.stats?.[tipo]){
+        return this.stats[tipo] += n
+    }
+    
+}
+alumno.incrementarStats('followers', 15)
+console.log(alumno.stats.followers)
+let parrafoOutput3 = document.getElementById('output3')
+mostrarObjeto(alumno, parrafoOutput3)
