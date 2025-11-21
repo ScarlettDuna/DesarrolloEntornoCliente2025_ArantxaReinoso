@@ -1,3 +1,4 @@
+// Ejercicio 1
 // (Objetos: creación, recorrido y propiedades) Vamos a simular un objeto llamado
 // “alumno” con las siguientes propiedades:
 let alumno = {
@@ -36,6 +37,7 @@ mostrarObjeto(alumno, parrafoOutput)
 
 /* Object.assign(dest, ...sources) - copia las propiedades de todos los objetos fuentes dentro del destino dest y lo devuelve como resultado
 structuredClone(object) - clona el object con todas sus propiedadas anidadas. */
+// Ejercicio 2
 let parrafoOutput2 = document.getElementById('output2') 
 let clonAlumno = structuredClone(alumno)
 clonAlumno.stats.posts += 1
