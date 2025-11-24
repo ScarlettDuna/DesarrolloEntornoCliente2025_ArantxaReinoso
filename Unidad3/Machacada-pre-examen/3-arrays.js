@@ -32,3 +32,25 @@ botonEj2.onclick = function () {
     let media = sum/numeros.length
     parrafo.innerText = `La media de los números introducidos es: ${media}`
 }
+
+// Crea una función que reciba dos fechas y diga cuántos días han pasado entre ellas.
+let botonEj3 = document.getElementById('botonEj3')
+botonEj3.addEventListener('click', () => {
+    let input1 = document.getElementById('inputEj3-1').value
+    let input2 = document.getElementById('inputEj3-2').value
+    let fecha1 = new Date(input1)
+    let fecha2 = new Date(input2)
+    let parrafo = document.getElementById('parrafoEj3');
+    let diferenciaFechas;
+    if (fecha1 < fecha2) {
+        diferenciaFechas = Math.round((fecha2.getTime() - fecha1.getTime())/(1000 * 60 * 60 * 24))
+        parrafo.innerText = `Entre el ${fecha1.toLocaleDateString('es-ES')} y el ${fecha2.toLocaleDateString('es-ES')} hay ${diferenciaFechas} días`;
+    } else {
+        parrafo.innerText = `La fecha final debe ser mayor a la fecha inicial.`
+    }
+})
+
+// Dado un array de fechas, muestra cuáles caen en fin de semana.
+
+
+// Crea un reloj en vivo que actualice la hora cada segundo en la página.
