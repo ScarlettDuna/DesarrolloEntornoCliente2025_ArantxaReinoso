@@ -60,18 +60,17 @@ mostrarObjeto(alumno, parrafoOutput3)
 
 /* Ejercicio 4: (Objetos: función con new) El objeto “alumno” en este punto contiene 3
 propiedades y un método. Convierte el objeto a una función llamada “classAlumno”
-que se pueda instanciar con new. La variable con el objeto alumno ahora instanciará
-“classAlumno”. Comprueba si el resto del código sigue funcionando. 
+que se pueda instanciar con new. Comprueba si el resto del código sigue funcionando. 
 function User(name) {
   this.name = name;
   this.isAdmin = false;
 }*/
-function Alumno(edad, admin) {
+function Alumno(edad, posts, followers) {
     this.edad = edad,
-    this.admin = admin,
+    this.admin = false,
     this.stats = {
-        followers : 0,
-        post : 0
+        followers : followers,
+        post : posts
     }
     this.incrementarStats = function (tipo, n) {
         if (typeof n === "number" && this.stats?.[tipo]){
@@ -79,7 +78,7 @@ function Alumno(edad, admin) {
         }
     }
 }
-let alumnoObjeto1 = new Alumno(34, true);
+let alumnoObjeto1 = new Alumno(34, 3, 7);
 console.log(alumnoObjeto1)
 let parrafoOutput4 = document.getElementById('output4')
 mostrarObjeto(alumnoObjeto1, parrafoOutput4)
