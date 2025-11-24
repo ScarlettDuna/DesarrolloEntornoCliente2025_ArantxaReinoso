@@ -1,8 +1,16 @@
-# Default ignored files
-/shelf/
-/workspace.xml
-# Editor-based HTTP Client requests
-/httpRequests/
-# Datasource local storage ignored files
-/dataSources/
-/dataSources.local.xml
+# IntelliJ / WebStorm
+.idea/
+*.iml
+workspace.xml
+shelf/
+
+# HTTP client requests del IDE
+httpRequests/
+
+# Datasource del IDE
+dataSources/
+dataSources.local.xml
+
+# Archivos del sistema (opcionales pero útiles)
+.DS_Store
+Thumbs.db
