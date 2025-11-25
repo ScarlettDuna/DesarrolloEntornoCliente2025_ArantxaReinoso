@@ -2,10 +2,10 @@
 let botonEj1 = document.getElementById('botonEj1');
 botonEj1.addEventListener('click', () => {
     let nombres = document.getElementById('inputEj1').value 
-    let sortedNombers = nombres.trim().split(" ").toSorted()
+    let sortedNombers = nombres.trim().split(/\s+/).toSorted()
     let parrafo = document.getElementById('parrafoEj1');
     if (sortedNombers.length !== 5) {
-        parrafo.innerText = `Valores introducidos incorrectos`
+        parrafo.innerText = `Introduce exactamente 5 nombres separados por espacios`
     } else {
         parrafo.innerText = `Los nombres ordenador son: ${sortedNombers[0]}, ${sortedNombers[1]}, ${sortedNombers[2]}, ${sortedNombers[3]} y ${sortedNombers[4]}`
     }
@@ -21,14 +21,13 @@ botonEj2.onclick = function () {
         .map(Number)
     let sum = 0;
     let parrafo = document.getElementById('parrafoEj2');
-    numeros.forEach(num => {
-        if (!isNaN(num)) {
-            sum += num
-        } else {
-            parrafo.innerText = `Valores introducidos incorrectos`;
-            return
+    for (let num of numeros) {
+        if (isNaN(num)) {
+            parrafo.innerText = "Valores incorrectos";
+            return;
         }
-    });
+        sum += num;
+    }
     let media = sum/numeros.length
     parrafo.innerText = `La media de los números introducidos es: ${media}`
 }
@@ -42,7 +41,10 @@ botonEj3.addEventListener('click', () => {
     let fecha2 = new Date(input2)
     let parrafo = document.getElementById('parrafoEj3');
     let diferenciaFechas;
-    if (fecha1 < fecha2) {
+    if (isNaN(fecha1) || isNaN(fecha2)) {
+        parrafo.innerText = `Introduce dos fechas válidas.`;
+    }
+    if (fecha1 <= fecha2) {
         diferenciaFechas = Math.round((fecha2.getTime() - fecha1.getTime())/(1000 * 60 * 60 * 24))
         parrafo.innerText = `Entre el ${fecha1.toLocaleDateString('es-ES')} y el ${fecha2.toLocaleDateString('es-ES')} hay ${diferenciaFechas} días`;
     } else {
@@ -54,10 +56,12 @@ botonEj3.addEventListener('click', () => {
 let botonEj4 = document.getElementById('botonEj4')
 botonEj4.addEventListener('click', () => {
     let input = document.getElementById('inputEj4').value
-    let fechas = input.trim().split(/[,\s]*/).map(f => {
-        const d = new Date(f)
-        return isNaN(d) ? null : d
-    })
+    let fechas = input.trim()
+        .split(/[,\s]+/)
+        .map(f => {
+            const d = new Date(f)
+            return isNaN(d) ? null : d
+        })
     let parrafo = document.getElementById('parrafoEj4')
     parrafo.innerText = "";
     console.log(fechas)

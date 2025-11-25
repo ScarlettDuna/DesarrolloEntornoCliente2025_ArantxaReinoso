@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Repaso CSS Dinámico</title>
+    <script src="5-css-dinamico.js" defer></script>
+    <style>
+        .ejercicio1, #ejercicio3 {
+            border: solid 1px black;
+            padding: 75px;
+            margin: 25px;
+            display: flex;
+            justify-content: center;
+        }
+        .background {
+            background: rebeccapurple;
+        }
+        .ejercicio2 {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<h3>Ejercicio 1</h3>
+<div class="ejercicio1">
+    <button>Cámbiame de color</button>
+</div>
+
+<h3>Ejercicio 2</h3>
+<div>
+    <p class="ejercicio2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse gravida ac urna sed volutpat.
+        Vivamus convallis tempor pellentesque. Maecenas ultricies dapibus eros, ac eleifend lectus accumsan id. Aenean vestibulum accumsan eros, eget pulvinar ex luctus at.
+        Donec mollis dolor non dignissim venenatis. Curabitur orci sapien, ullamcorper et sodales ut, fringilla et turpis. Suspendisse consequat tincidunt nisi nec mollis. Maecenas lobortis ipsum vel luctus gravida. Suspendisse arcu eros, rutrum a velit quis, feugiat pretium odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc at enim accumsan, elementum diam ultrices, varius sem.
+    Etiam auctor imperdiet pretium.
+    </p>
+    <button class="agrandar">Agrandar</button>
+    <button class="encoger">Encoger</button>
+</div>
+
+<h3>Ejercicio 3</h3>
+<div id="ejercicio3">
+    <h2>Clícame dos veces para que cambie de color</h2>
+</div>
+</body>
+</html>

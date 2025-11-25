@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Repaso ventanas y comunicación: pop-up</title>
+</head>
+<body>
+<h3>Ejercicio 1</h3>
+<p>Proverbio tailandés<q>ตราบใดที่ยังมีลมหายใจ ความหวังก็ยังไม่หายไปจากใจเรา.</q></p>
+
+<h3>Ejercicio 2</h3>
+<button>Enviar un mensaje</button>
+</body>
+<script>
+    let boton = document.querySelector('button');
+    boton.addEventListener('click', () => {
+        window.opener.postMessage('Adiós desde la ventana hija', "*")
+    })
+</script>
+</html>
