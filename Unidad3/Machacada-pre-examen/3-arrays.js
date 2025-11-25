@@ -51,6 +51,34 @@ botonEj3.addEventListener('click', () => {
 })
 
 // Dado un array de fechas, muestra cuáles caen en fin de semana.
-
+let botonEj4 = document.getElementById('botonEj4')
+botonEj4.addEventListener('click', () => {
+    let input = document.getElementById('inputEj4').value
+    let fechas = input.trim().split(/[,\s]*/).map(f => {
+        const d = new Date(f)
+        return isNaN(d) ? null : d
+    })
+    let parrafo = document.getElementById('parrafoEj4')
+    parrafo.innerText = "";
+    console.log(fechas)
+    for (let fecha of fechas) {
+        if (fecha !== null) {
+            if (fecha.getDay() === 0 || fecha.getDay() === 6) {
+                parrafo.innerText += `El día ${fecha.toLocaleDateString('es-ES')} cae en fin de semana. \n`;
+            } else {
+                parrafo.innerText += `El día ${fecha.toLocaleDateString('es-ES')} NO cae en fin de semana. \n`
+            }
+        }
+    }
+})
 
 // Crea un reloj en vivo que actualice la hora cada segundo en la página.
+function startTime() {
+    let hoy = new Date();
+    let hora = hoy.getHours();
+    let min = String(hoy.getMinutes()).padStart(2, 0);
+    let sec = String(hoy.getSeconds()).padStart(2, 0);
+    document.getElementById('clock').innerHTML = hora + ":" + min + ":" + sec;
+    setTimeout(startTime, 1000)
+
+}

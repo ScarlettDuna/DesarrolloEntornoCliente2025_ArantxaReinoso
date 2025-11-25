@@ -82,3 +82,23 @@ let alumnoObjeto1 = new Alumno(34, 3, 7);
 console.log(alumnoObjeto1)
 let parrafoOutput4 = document.getElementById('output4')
 mostrarObjeto(alumnoObjeto1, parrafoOutput4)
+
+// Ejercicio 5
+/* Un Symbol específico con descripción “id”. La propiedad del objeto “alumno”
+asociada a este Symbol tendrá como valor un ID generado con un número
+aleatorio del 0 al 9999. */
+
+let alumno5 = {
+    edad: 18,
+    admin: false,
+    stats: {
+        posts: 0,
+        followers: 0
+    }
+}
+let id = Symbol('id');
+alumno5[id] = Math.floor(Math.random() * 9999) + 1;
+/* Un Symbol global con descripción “estado”. El valor de esta propiedad asociada
+al Symbol en el objeto “alumno” será inicialmente el String “activo”. */
+let estado = Symbol.for('estado')
+alumno5[estado] = 'activo';
