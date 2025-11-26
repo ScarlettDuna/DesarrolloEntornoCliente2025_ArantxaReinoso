@@ -10,8 +10,8 @@ boton.addEventListener('click', () => {
         }
     }
     console.log(numGuiones)
-    if (numGuiones === 0) {
-        alert('Error: La fecha debe contener guiones ('-') y formato DD-MM-AAAA')
+    if (numGuiones !== 2) {
+        alert("Error: La fecha debe contener guiones ('-') y formato DD-MM-AAAA")
         return;
     }
     // Extrae el año, mes y día usando métodos de strings. Si no son números

@@ -8,8 +8,8 @@ boton.addEventListener('click', () => {
         }
     }
 
-    if (numGuiones === 0) {
-        alert('Error: La fecha debe contener guiones ('-') y formato DD-MM-AAAA')
+    if (numGuiones !== 2) {
+        alert("Error: La fecha debe contener guiones ('-') y formato DD-MM-AAAA")
         return;
     }
     let fecha = input.split('-');
@@ -35,11 +35,12 @@ boton.addEventListener('click', () => {
         - Edad actual: ${Math.floor(edad)} años\n
         - Edad el próximo año: ${Math.floor(edad) + 1} años\n
         - Edad máxima introducida: ${edadMaxima}`);
-    localStorage.setItem('edadMaxima', (Math.floor(edad) >= edadMaxima ? Math.floor(edad) : edadMaxima))
+    let edadGuardar = Math.floor(edad) >= edadMaxima ? Math.floor(edad) : edadMaxima
+    localStorage.setItem('edadMaxima', edadGuardar)
 
     let fechaExp = new Date()
     fechaExp.setTime(fechaExp.getTime() + 7*24*60*60*1000) // 7 días
-    document.cookie = `edadMaxima=${encodeURIComponent(edadMaxima)};${fechaExp.toUTCString()};path=/`
+    document.cookie = `edadMaxima=${encodeURIComponent(edadGuardar)};expires=${fechaExp.toUTCString()};path=/`
 
 })
 
