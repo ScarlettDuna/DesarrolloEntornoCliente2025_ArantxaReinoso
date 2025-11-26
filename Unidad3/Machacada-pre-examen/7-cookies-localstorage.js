@@ -26,7 +26,7 @@ if (nombreGuardado !== null) {
 
 // Cada vez que el usuario escriba, guardar automáticamente
 inputNombre.addEventListener("input", () => {
-    localStorage.setItem("edadGuardada", inputNombre.value);
+    localStorage.setItem("nombreGuardado", inputNombre.value);
 });
 
 // Al pulsar un botón “Cerrar sesión”, borra todas las cookies/localStorage y muestra un mensaje.
