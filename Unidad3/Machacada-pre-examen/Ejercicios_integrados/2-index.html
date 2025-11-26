@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora con botones</title>
+    <script src="./2-calculadora.js"></script>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        .calculadora {
+            border: solid 1px black;
+            display: grid;
+            grid-template-areas: "pantalla pantalla pantalla pantalla"
+            "numeros numeros numeros operadores";
+            width: 70%;
+            justify-self: center;
+        }
+        .numeros {
+            grid-area: numeros;
+            display: grid;
+            grid-template: 1fr 1fr 1fr  1fr/ 1fr 1fr 1fr;
+            border: solid 1px black;
+        }
+        .numeros > div, .operadores > div {
+            border: solid 1px black;
+            margin: 5px;
+            text-align: center;
+        }
+        .pantalla {
+            grid-area: pantalla;
+            border: solid 1px black;
+            padding: 25px 25px;
+        }
+        .operadores {
+            grid-area: operadores;
+            display: grid;
+            grid-template-rows: repeat(5, 1fr);
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora con botones</h1>
+    <div class="calculadora">
+        <div class="pantalla">
+            <p></p>
+        </div>
+        <div class="numeros">
+            <div class="1"> 1 </div>
+            <div class="2"> 2 </div>
+            <div class="3"> 3 </div>
+            <div class="4"> 4 </div>
+            <div class="5"> 5 </div>
+            <div class="6"> 6 </div>
+            <div class="7"> 7 </div>
+            <div class="8"> 8 </div>
+            <div class="9"> 9 </div>
+            <div class="0"> 0 </div>
+        </div>
+        <div class="operadores">
+            <div class="suma"> + </div>
+            <div class="resta"> - </div>
+            <div class="multiplicacion"> x </div>
+            <div class="division"> % </div>
+            <div class="igual"> = </div>
+
+        </div>
+    </div>
+</body>
+</html>
