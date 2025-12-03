@@ -102,3 +102,20 @@ alumno5[id] = Math.floor(Math.random() * 9999) + 1;
 al Symbol en el objeto “alumno” será inicialmente el String “activo”. */
 let estado = Symbol.for('estado')
 alumno5[estado] = 'activo';
+
+// otra forma
+let id6 = Symbol('id')
+let alumno6 = {
+    edad: 18,
+    admin: false,
+    stats: {
+        posts: 0,
+        followers: 0
+    },
+    [id6] : Math.floor(Math.random() * 9999) + 1,
+    incrementarStats : function (tipo, n) {
+    if (typeof n === "number" && this.stats?.[tipo]){
+        return this.stats[tipo] += n
+        }
+    },
+}
