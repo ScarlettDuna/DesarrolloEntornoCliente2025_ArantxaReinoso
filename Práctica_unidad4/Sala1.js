@@ -30,27 +30,48 @@ let sala1 = {
         if (this.intentosHechos >= this.intentosAcceder) {
             document.getElementById("inputCodigo").style.display = "none";
             document.getElementById("probarCodigo").style.display = "none";
-            document.getElementById("resultado").innerText = "Número de intentos agotado. Refresca la página y empieza de nuevo."
+            document.getElementById("zonaPistas").innerText = "Número de intentos agotado. Reinicia la sala para empezar de nuevo."
         }
     }
 }
-// Test objeto Sala1
-console.log(sala1.validarCodigo(123)); // "Incorrecto"
-console.log(sala1.validarCodigo(sala1[codigoSecreto])); // "Correcto"
-console.log(sala1.bloqueada); // false
+// Clonación del objeto Sala1
+const estadoInicialSala1 = structuredClone(sala1);
+
+
+// Comprobar input con códigoSecreto
 document.getElementById("probarCodigo").addEventListener("click", () => {
     const valor = Number(document.getElementById("inputCodigo").value);
     const resultado = sala1.validarCodigo(valor);
     document.getElementById("resultado").innerText = resultado;
 });
 
-
+// Mostrar pistas
+let pista = 1;
+const contenedor = document.getElementById("zonaPistas");
+contenedor.innerHTML = "";
 document.getElementById("verPistas").addEventListener("click", () => {
-    const contenedor = document.getElementById("zonaPistas");
-    contenedor.innerHTML = "";
-
-    for (let [objeto, pista] of Object.entries(sala1.pistas)) {
-        contenedor.innerHTML += `<p>${objeto}. ${pista}</p>`;
+    if (pista >= 6) {
+        contenedor.innerHTML += `<p>${pista}. ${sala1.pistas[pista]}</p> \n`;
+        pista ++;
+    } else {
+        contenedor.innerHTML += "No hay más pistas";
     }
+
 });
 
+// Reiniciar Sala
+document.getElementById("reiniciarSala").addEventListener("click", () => {
+    // Restaurar estado completo desde la copia
+    sala1 = structuredClone(estadoInicialSala1);
+
+    // Restaurar interfaz
+    document.getElementById("intentosUsados").innerText = 0;
+    document.getElementById("resultado").innerText = "";
+    document.getElementById("zonaPistas").innerHTML = "";
+    document.getElementById("inputCodigo").style.display = "inline";
+    document.getElementById("probarCodigo").style.display = "inline";
+
+    pista = 1;
+
+    alert("Sala reiniciada");
+});
