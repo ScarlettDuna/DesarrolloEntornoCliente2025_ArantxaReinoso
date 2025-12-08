@@ -85,6 +85,9 @@ document.getElementById("reiniciarSala").addEventListener("click", () => {
     document.getElementById("zonaPistas").innerHTML = "";
     document.getElementById("inputCodigo").style.display = "inline";
     document.getElementById("probarCodigo").style.display = "inline";
+    document.getElementById("verPistas").style.display = 'inline';
+    document.getElementById("inputCodigo").value = "";
+
 
     pista = 1;
 
