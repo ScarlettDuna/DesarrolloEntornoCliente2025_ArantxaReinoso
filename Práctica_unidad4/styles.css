@@ -10,7 +10,7 @@ body {
 h2 {
     font-size: 22px;
 }
-p {
+p, label {
     font-size: 18px;
 }
 #intentosUsados {
@@ -32,7 +32,7 @@ p {
 .codigo {
     padding: 15px;
     display: inline-block;
-    width: 80%;
+    width: 60%;
     margin: 15px auto;
     border-radius: 15px;
     box-shadow: 2px 1px 4px darkcyan;
@@ -40,7 +40,7 @@ p {
 .pistas {
     padding: 15px;
     display: inline-block;
-    width: 80%;
+    width: 60%;
     margin: 15px auto;
     border-radius: 15px;
     box-shadow: 2px 1px 4px darkmagenta;
@@ -59,10 +59,13 @@ button:hover {
 }
 /* Animación en caso de error */
 .error {
-    animation: shake 0.3s;
+    animation: shake 0.5s;
     background-color: #ffb3b3;
 }
-
+.acierto {
+    animation: shake 0.5s;
+    background-color: #008000;
+}
 @keyframes shake {
     0% { transform: translateX(0); }
     25% { transform: translateX(-5px); }

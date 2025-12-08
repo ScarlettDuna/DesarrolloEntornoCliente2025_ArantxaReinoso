@@ -23,7 +23,6 @@ sala1[codigoSecreto] = numeroAleatorio;
 sala1.validarCodigo = function (codigoIntroducido) {
     if (codigoIntroducido === this[codigoSecreto]) {
         this.bloqueada = false;
-        this.addIntento();
         return "Correcto";
     } else {
         this.addIntento();
@@ -50,9 +49,18 @@ document.getElementById("probarCodigo").addEventListener("click", () => {
         setTimeout(() => {
             document.getElementById("resultado").classList.remove("error");
         }, 300);
-
+        document.getElementById("resultado").innerText = resultado;
+    } else if (resultado === "Correcto") {
+        document.getElementById("resultado").classList.add("acierto");
+        setTimeout(() => {
+            document.getElementById("resultado").classList.remove("acierto");
+        }, 300);
+        document.getElementById("verPistas").style.display = 'none';
+        document.getElementById("inputCodigo").style.display = "none";
+        document.getElementById("probarCodigo").style.display = "none";
+        document.getElementById("zonaPistas").style.display = "none";
+        document.getElementById("resultado").innerHTML = `<h2 style="color:#008000;">Has acertado</h2><br><p>Reinicia el juego para jugar otra partida</p>`
     }
-    document.getElementById("resultado").innerText = resultado;
 });
 
 // Mostrar pistas
@@ -64,7 +72,7 @@ document.getElementById("verPistas").addEventListener("click", () => {
         contenedor.innerHTML += `<p>${pista}. ${sala1.pistas[pista]}</p> \n`;
         pista ++;
     } else {
-        contenedor.innerHTML += "No hay más pistas";
+        contenedor.innerHTML += `<p style="color: darkmagenta;">No hay más pistas</p>`;
         document.getElementById("verPistas").style.display = 'none';
     }
 
@@ -86,10 +94,11 @@ document.getElementById("reiniciarSala").addEventListener("click", () => {
     document.getElementById("inputCodigo").style.display = "inline";
     document.getElementById("probarCodigo").style.display = "inline";
     document.getElementById("verPistas").style.display = 'inline';
+    document.getElementById("zonaPistas").style.display = "inline";
     document.getElementById("inputCodigo").value = "";
 
 
     pista = 1;
 
-    alert("Sala reiniciada");
+    alert("Sala reiniciada \nSe ha creado un número código secreto");
 });
