@@ -40,6 +40,7 @@ sala1.addIntento = function () {
     }
 }
 const fnAddIntento = sala1.addIntento;
+
 // Comprobar input con códigoSecreto
 document.getElementById("probarCodigo").addEventListener("click", () => {
     const valor = Number(document.getElementById("inputCodigo").value);
@@ -62,6 +63,13 @@ document.getElementById("probarCodigo").addEventListener("click", () => {
         document.getElementById("resultado").innerHTML = `<h2 style="color:#008000;">Has acertado</h2><br><p>Reinicia el juego para jugar otra partida</p>`
     }
 });
+// Usar tecla enter para hacer la misma función que el botón "probarCodigo"
+document.getElementById("inputCodigo").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        document.getElementById("probarCodigo").click();
+    }
+});
+
 
 // Mostrar pistas
 let pista = 1;
