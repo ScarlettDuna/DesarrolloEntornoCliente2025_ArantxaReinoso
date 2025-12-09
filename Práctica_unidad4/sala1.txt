@@ -1,0 +1,14 @@
+El símbolo se muestra por consola en el documento Sala1.js en la línea 45
+El objeto original se muestra por consola en el documento Sala1.js en la línea 47
+El objeto clonado, ya restaurado, pero con diferente número secreto se puede ver después de hacer click en el botón "Reiniciar Sala" en la línea 102 del documento Sala1.js
+
+Commit "Añadir efectos 'acierto'"
+Líneas 59-68.
+Se añade la lógica que desenlaza el cambio gráfico que informa al jugador que ha encontrado el número correcto. 
+Para ello se muestra el mensaje "Has acertado" dentro de un h2 de color verde. Se añade trasición CSS para hacerlo más visual.
+
+Commit "Añadir la clonación y reinicio de la sala"
+Líneas 18 - 42 y 94 - 118
+Se realiza el clon del objeto sala1 como parte del reinicio del juego cuando el jugador agota los intentos de adivinar el número secreto. 
+Se tiene que descomponer el objeto inicial y sacar las funciones y el symbol para que la función structuredClone() funcione correctamente. 
+Se guardan las funciones en variables y se añaden al objeto inicial justo después de hacer el clon y al clon cuando el jugador clica en el botón "Reinciar sala". 

@@ -41,6 +41,11 @@ sala1.addIntento = function () {
 }
 const fnAddIntento = sala1.addIntento;
 
+// Se muestra Symbol por consola
+console.log(codigoSecreto)
+// Se muestra el objeto original
+console.log(sala1)
+
 // Comprobar input con códigoSecreto
 document.getElementById("probarCodigo").addEventListener("click", () => {
     const valor = Number(document.getElementById("inputCodigo").value);
@@ -94,6 +99,7 @@ document.getElementById("reiniciarSala").addEventListener("click", () => {
     sala1[codigoSecreto] = nuevoCodigo;
     sala1.validarCodigo = fnValidarCodigo;
     sala1.addIntento = fnAddIntento;
+    console.log(sala1)
 
     // Restaurar interfaz
     document.getElementById("intentosUsados").innerText = 0;
