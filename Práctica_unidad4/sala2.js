@@ -13,7 +13,6 @@ let sala2 = {
     B: false,
     C: true
   },
-  tiempoLimite: 60, // 60 segundos
   intentos: 0, 
   pistas: new Map([
     ["A", "La palanca A parece desgastada"],
@@ -26,6 +25,7 @@ let sala2 = {
   },
   comprobarCombinacion() {
     this.intentos ++;
+    intentos.innerText = sala2.intentos;
     const clavePalancas = Array.from(
       Object.entries(this.palancas),
       ([p, v]) => `${p}:${v}`).join('|');
@@ -51,6 +51,7 @@ let palancaC = document.querySelector('.palC')
 let comprobar = document.querySelector('#comprobar')
 let mostrar = document.querySelector('.mostrar')
 let mensaje = document.querySelector('#mensaje')
+let intentos = document.getElementById('intentos')
 
 palancaA.addEventListener('click', () => {
   sala2.cambiarPalanca('A');
