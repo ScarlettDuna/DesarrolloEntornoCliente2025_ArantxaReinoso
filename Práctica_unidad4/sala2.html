@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sala 2</title>
     <script src="./sala2.js" defer></script>
+    <link rel="stylesheet" href="./sala2.css">
 </head>
 <body>
     <h1>El juego de las palancas</h1>
+    <h2>Contador de intentos: <span id="intentos">0</span></h2>
+    
     <div class="palancas">
         <button class="palA">Palanca A</button>
         <button class="palB">Palanca B</button>
@@ -16,6 +19,8 @@
     </div>
     <div class="resultado">
         <button id="comprobar">Comprobar</button>
+        <p id="estado"></p>
+        <p id="mensaje"></p>
     </div>
 </body>
 </html>

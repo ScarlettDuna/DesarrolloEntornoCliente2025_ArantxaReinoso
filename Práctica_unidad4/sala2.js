@@ -44,12 +44,13 @@ let sala2 = {
     }).join('\n')
   }
 }
-let resultado = document.querySelector('.resultado')
+let estado = document.querySelector('#estado')
 let palancaA = document.querySelector('.palA')
 let palancaB = document.querySelector('.palB')
 let palancaC = document.querySelector('.palC')
 let comprobar = document.querySelector('#comprobar')
 let mostrar = document.querySelector('.mostrar')
+let mensaje = document.querySelector('#mensaje')
 
 palancaA.addEventListener('click', () => {
   sala2.cambiarPalanca('A');
@@ -62,10 +63,12 @@ palancaC.addEventListener('click', () => {
 })
 comprobar.addEventListener('click', () => {
   const ok = sala2.comprobarCombinacion();
-  resultado.innerText = ok
-    ? "✔ Combinación correcta"
-    : "✖ Combinación incorrecta";
+  if (ok) {
+    mensaje.innerHTML = `<span style="color: green">✔ Combinación correcta</span>`
+  } else {
+    mensaje.innerHTML = `<span style="color: red">✖ Combinación incorrecta</span>`
+  }
 })
 mostrar.addEventListener('click', () => {
-  resultado.innerHTML = sala2.mostrarEstado()
+  estado.innerHTML = sala2.mostrarEstado()
 })
