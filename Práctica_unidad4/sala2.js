@@ -73,3 +73,17 @@ comprobar.addEventListener('click', () => {
 mostrar.addEventListener('click', () => {
   estado.innerHTML = sala2.mostrarEstado()
 })
+
+let verIntentos = document.getElementById('verIntentos');
+let ayuda = document.getElementById('ayuda');
+
+verIntentos.addEventListener('click', () => {
+  if (sala2.combinacionesUsadas.size === 0) {
+    ayuda.innerText = "Aún no has probado ninguna combinación.";
+    return;
+  }
+
+  ayuda.innerText = Array.from(sala2.combinacionesUsadas)
+    .map((comb, i) => `${i + 1}. ${comb}`)
+    .join('\n');
+});

@@ -55,16 +55,32 @@ button:hover {
     background-color: darkmagenta;
     color: antiquewhite;
 }
+#verIntentos {
+    background-color: darkgray;
+    color: darkmagenta;
+    font-weight: bold;
+}
 
 .resultado {
     margin-top: 15px;
     padding: 10px;
     box-shadow: 2px 2px 6px darkmagenta;
     border-radius: 10px;
-    width: 50%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     font-size: 18px;
 }
 
+#ayuda {
+    white-space: pre-line;
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 2px 2px 6px gainsboro;
+}
 
