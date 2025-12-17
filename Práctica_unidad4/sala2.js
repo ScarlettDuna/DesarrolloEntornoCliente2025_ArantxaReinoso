@@ -17,7 +17,8 @@ let sala2 = {
   pistas: new Map([
     [1, "Una palanca debe estar 'on'"],
     [2, "Hay dos palancas en el mismo sentido"],
-    [3, "No te rindas"]
+    [3, "Hay más 'off' que 'on'."],
+    [4, "No te rindas"]
   ]),
   combinacionesUsadas: new Set(), //Cada vez que se pulsa comprobar se guarda la combianción por si el usuario quiere ver qué opciones ha introducido ya
   cambiarPalanca(palanca) {
@@ -33,7 +34,6 @@ let sala2 = {
     const correcta = Object.keys(this.combinacionCorrecta).every(p => this.palancas[p] === this.combinacionCorrecta[p]);
     if (correcta) {
       this.bloqueada = false;
-      this.mostrarPista();
       return true;
     } else {
       this.mostrarPista();
@@ -46,11 +46,16 @@ let sala2 = {
     }).join('\n')
   },
   mostrarPista() {
-    if (this.intentos % 2 === 0 && this.intentos < 7) {
-      pistas.innerText += this.pistas.get(this.intentos / 2) + '\n';
+    let pistas = document.getElementById('pistas');
+    if (this.intentos % 2 === 0) {
+      const numPista = this.intentos / 2;
+      if (this.pistas.has(numPista))  {
+        pistas.innerText += this.pistas.get(numPista) + '\n';
+      }
     }
   }
 }
+
 let estado = document.querySelector('#estado')
 let palancaA = document.querySelector('.palA')
 let palancaB = document.querySelector('.palB')
@@ -83,9 +88,11 @@ mostrar.addEventListener('click', () => {
 
 let verIntentos = document.getElementById('verIntentos');
 let ayuda = document.getElementById('ayuda');
-let pistas = document.getElementById('pistas');
+
 
 verIntentos.addEventListener('click', () => {
+  intentos.innerText = sala2.intentos;
+  sala2.mostrarPista();
   if (sala2.combinacionesUsadas.size === 0) {
     ayuda.innerText = "Aún no has probado ninguna combinación.";
     return;
@@ -95,3 +102,7 @@ verIntentos.addEventListener('click', () => {
     .map((comb, i) => `${i + 1}. ${comb}`)
     .join('\n');
 });
+
+// Muestra por consola las propiedades de algún objeto creando las variables con desestructuración.
+let {nombre, bloqueada} = sala2;
+console.log(`El objeto sala2 se llama '${nombre}' y ${bloqueada ? 'está bloquada' : 'no está bloqueada'}.`);
