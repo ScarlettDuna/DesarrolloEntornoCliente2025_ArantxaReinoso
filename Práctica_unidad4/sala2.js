@@ -15,9 +15,9 @@ let sala2 = {
   },
   intentos: 0, 
   pistas: new Map([
-    ["A", "La palanca A parece desgastada"],
-    ["B", "La palanca B no hace ruido"],
-    ["C", "La palanca C vibra ligeramente"]
+    [1, "Una palanca debe estar 'on'"],
+    [2, "Hay dos palancas en el mismo sentido"],
+    [3, "No te rindas"]
   ]),
   combinacionesUsadas: new Set(), //Cada vez que se pulsa comprobar se guarda la combianción por si el usuario quiere ver qué opciones ha introducido ya
   cambiarPalanca(palanca) {
@@ -33,8 +33,10 @@ let sala2 = {
     const correcta = Object.keys(this.combinacionCorrecta).every(p => this.palancas[p] === this.combinacionCorrecta[p]);
     if (correcta) {
       this.bloqueada = false;
+      this.mostrarPista();
       return true;
     } else {
+      this.mostrarPista();
       return false;
     }
   }, 
@@ -42,6 +44,11 @@ let sala2 = {
     return Object.entries(this.palancas).map(([palanca, estado]) => {
       return `${palanca}: ${estado ? "ON" : "OFF"}`;
     }).join('\n')
+  },
+  mostrarPista() {
+    if (this.intentos % 2 === 0 && this.intentos < 7) {
+      pistas.innerText += this.pistas.get(this.intentos / 2) + '\n';
+    }
   }
 }
 let estado = document.querySelector('#estado')
@@ -65,9 +72,9 @@ palancaC.addEventListener('click', () => {
 comprobar.addEventListener('click', () => {
   const ok = sala2.comprobarCombinacion();
   if (ok) {
-    mensaje.innerHTML = `<span style="color: green">✔ Combinación correcta</span>`
+    mensaje.innerHTML = `<span style="color: green"> ✔ Combinación correcta</span>`
   } else {
-    mensaje.innerHTML = `<span style="color: red">✖ Combinación incorrecta</span>`
+    mensaje.innerHTML = `<span style="color: red"> ✖ Combinación incorrecta</span>`
   }
 })
 mostrar.addEventListener('click', () => {
@@ -76,6 +83,7 @@ mostrar.addEventListener('click', () => {
 
 let verIntentos = document.getElementById('verIntentos');
 let ayuda = document.getElementById('ayuda');
+let pistas = document.getElementById('pistas');
 
 verIntentos.addEventListener('click', () => {
   if (sala2.combinacionesUsadas.size === 0) {
