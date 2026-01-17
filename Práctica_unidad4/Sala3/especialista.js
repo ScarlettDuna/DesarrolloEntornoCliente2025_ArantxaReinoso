@@ -1,22 +1,24 @@
 import Jugador from './jugador.js';
 class Cientifico extends Jugador {
-    constructor() {
-        super()
+    constructor(nombre) {
+        super(nombre)
         this.especial = 'Conocimiento'
     }
     usarHabilidadEspecial() {
-        return 'La solución es...'
+        this.nivel = this.nivel + 5;
+        return '¡Claro! La solución es 1234. ¡El científico mete la contraseña y la puerta se abre!'
     }
     investigar() {
         throw new Error('Has tocado donde no debías. ¡Has muerto!')
     }
 }
 class Soldado extends Jugador {
-    constructor() {
-        super()
+    constructor(nombre) {
+        super(nombre)
         this.especial = 'Fuerza'
     }
     usarHabilidadEspecial() {
+        this.nivel = this.nivel + 5;
         return 'El soldado rompe la cerradura y la puerta se abre.'
     }
     investigar() {
@@ -24,11 +26,12 @@ class Soldado extends Jugador {
     }
 }
 class Atleta extends Jugador {
-    constructor() {
-        super()
+    constructor(nombre) {
+        super(nombre)
         this.especial = 'Escalada'
     }
     usarHabilidadEspecial() {
+        this.nivel = this.nivel + 5;
         return 'El atleta ve una nota pegada en el techo, usando el saliente del marco de la puerta escala hasta ella y la coge. Está escrita la contraseña en la nota.'
     }
     investigar() {

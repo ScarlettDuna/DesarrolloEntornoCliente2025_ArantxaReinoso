@@ -1,4 +1,4 @@
-export default class Judador {
+export default class Jugador {
     #nivel = 5;
     constructor(nombre) {
         this.nombre = nombre;
@@ -6,5 +6,12 @@ export default class Judador {
     static intentarAbrir() {
         return "La puerta emite una luz roja y pita. Se ilumina un cartel 'USA UNO DE LOS JUGADORES ESPECIALES'";
     }
-    get
+    get nivel(){
+        return this.#nivel;
+    }
+    set nivel(kms) {
+        if (kms > this.#nivel) {
+            this.#nivel = kms
+        }
+    }
 }

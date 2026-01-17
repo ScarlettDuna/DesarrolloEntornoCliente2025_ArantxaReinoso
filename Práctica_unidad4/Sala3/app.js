@@ -1,18 +1,18 @@
 import Jugador from './jugador.js'
 import { Cientifico, Soldado, Atleta } from './especialista.js'
 
+// Detona el método estático de la clase Jugador
 let elemStatic = document.getElementById('static');
 let btnAbrir = document.getElementById('abrir');
-
 btnAbrir.addEventListener('click', () => {
     elemStatic.innerHTML = `<h2>${Jugador.intentarAbrir()}</h2>`
 })
 
+// Detonan los métodos de las clases hijas
 let btnSoldado = document.getElementById('soldado');
 let btnCientifico = document.getElementById('cientifico');
 let btnAtleta = document.getElementById('atleta');
 let output = document.getElementById('output')
-let nombre = document.getElementById('nombre').value;
 
 btnSoldado.addEventListener('click', () => {
     output.innerHTML = `
@@ -20,9 +20,12 @@ btnSoldado.addEventListener('click', () => {
         <button type="button" id="btn-especial">Habilidad Especial</button>
         <button type="button" id="btn-investigar">Investigar</button>
     `;
+    // leemos el nombre para poder iniciar el jugador
+    let nombre = document.getElementById('nombre').value;
     const unSoldado = new Soldado(nombre);
-    // Ahora que existen en el DOM, les asignamos el evento
+
     document.getElementById('btn-investigar').addEventListener('click', () => {
+        // Control de errores
         try {
             unSoldado.investigar(); 
         } catch (error) {
@@ -30,7 +33,7 @@ btnSoldado.addEventListener('click', () => {
         }
     });
     document.getElementById('btn-especial').addEventListener('click', () => {
-        output.innerHTML = `<p style="color: green;">${unSoldado.investigar}</p>`
+        output.innerHTML = `<p style="color: green;">${unSoldado.usarHabilidadEspecial()}</p>`
     })
 });
 btnCientifico.addEventListener('click', () => {
@@ -39,6 +42,7 @@ btnCientifico.addEventListener('click', () => {
         <button type="button" id="btn-especial">Habilidad Especial</button>
         <button type="button" id="btn-investigar">Investigar</button>
     `;
+    let nombre = document.getElementById('nombre').value;
     const unCientifico = new Cientifico(nombre);
     document.getElementById('btn-investigar').addEventListener('click', () => {
         try {
@@ -48,7 +52,7 @@ btnCientifico.addEventListener('click', () => {
         }
     });
     document.getElementById('btn-especial').addEventListener('click', () => {
-        output.innerHTML = `<p style="color: green;">${unCientifico.investigar}</p>`
+        output.innerHTML = `<p style="color: green;">${unCientifico.usarHabilidadEspecial()}</p>`
     })
 });
 btnAtleta.addEventListener('click', () => {
@@ -57,6 +61,7 @@ btnAtleta.addEventListener('click', () => {
         <button type="button" id="btn-especial">Habilidad Especial</button>
         <button type="button" id="btn-investigar">Investigar</button>
     `;
+    let nombre = document.getElementById('nombre').value;
     const unAtleta = new Atleta(nombre);
     document.getElementById('btn-investigar').addEventListener('click', () => {
         try {
@@ -66,6 +71,6 @@ btnAtleta.addEventListener('click', () => {
         }
     });
     document.getElementById('btn-especial').addEventListener('click', () => {
-        output.innerHTML = `<p style="color: green;">${unAtleta.investigar}</p>`
+        output.innerHTML = `<p style="color: green;">${unAtleta.usarHabilidadEspecial()}</p>`
     })
 });
