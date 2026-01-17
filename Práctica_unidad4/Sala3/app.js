@@ -15,15 +15,16 @@ let btnAtleta = document.getElementById('atleta');
 let output = document.getElementById('output')
 
 btnSoldado.addEventListener('click', () => {
+    // leemos el nombre para poder iniciar el jugador
+    let nombre = document.getElementById('nombre').value;
+    const unSoldado = new Soldado(nombre);
+
     output.innerHTML = `
         <h3>¿Qué acción deseas probar?</h3>
         <button type="button" id="btn-especial">Habilidad Especial</button>
         <button type="button" id="btn-investigar">Investigar</button>
     `;
-    // leemos el nombre para poder iniciar el jugador
-    let nombre = document.getElementById('nombre').value;
-    const unSoldado = new Soldado(nombre);
-
+    
     document.getElementById('btn-investigar').addEventListener('click', () => {
         // Control de errores
         try {
@@ -37,13 +38,14 @@ btnSoldado.addEventListener('click', () => {
     })
 });
 btnCientifico.addEventListener('click', () => {
+    let nombre = document.getElementById('nombre').value;
+    const unCientifico = new Cientifico(nombre);
     output.innerHTML = `
         <h3>¿Qué acción deseas probar?</h3>
         <button type="button" id="btn-especial">Habilidad Especial</button>
         <button type="button" id="btn-investigar">Investigar</button>
     `;
-    let nombre = document.getElementById('nombre').value;
-    const unCientifico = new Cientifico(nombre);
+    
     document.getElementById('btn-investigar').addEventListener('click', () => {
         try {
             unCientifico.investigar(); 
@@ -56,13 +58,14 @@ btnCientifico.addEventListener('click', () => {
     })
 });
 btnAtleta.addEventListener('click', () => {
+    let nombre = document.getElementById('nombre').value;
+    const unAtleta = new Atleta(nombre);
     output.innerHTML = `
         <h3>¿Qué acción deseas probar?</h3>
         <button type="button" id="btn-especial">Habilidad Especial</button>
         <button type="button" id="btn-investigar">Investigar</button>
     `;
-    let nombre = document.getElementById('nombre').value;
-    const unAtleta = new Atleta(nombre);
+    
     document.getElementById('btn-investigar').addEventListener('click', () => {
         try {
             unAtleta.investigar(); 
