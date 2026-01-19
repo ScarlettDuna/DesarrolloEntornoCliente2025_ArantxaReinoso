@@ -6,7 +6,7 @@ class Cientifico extends Jugador {
     }
     usarHabilidadEspecial() {
         this.nivel = this.nivel + 5;
-        return '¡Claro! La solución es 1234. ¡El científico mete la contraseña y la puerta se abre!'
+        return `¡Claro! La solución es 1234. ¡El científico mete la contraseña y la puerta se abre!  <br> El científico ${this.nombre} ha subido de nivel, nivel actual: ${this.nivel}`
     }
     investigar() {
         throw new Error('Has tocado donde no debías. ¡Has muerto!')
@@ -19,7 +19,7 @@ class Soldado extends Jugador {
     }
     usarHabilidadEspecial() {
         this.nivel = this.nivel + 5;
-        return 'El soldado rompe la cerradura y la puerta se abre.'
+        return `El soldado rompe la cerradura y la puerta se abre. <br> El soldado ${this.nombre} ha subido de nivel, nivel actual: ${this.nivel}`
     }
     investigar() {
         throw new Error('Has tocado donde no debías. ¡Has muerto!')
@@ -32,7 +32,7 @@ class Atleta extends Jugador {
     }
     usarHabilidadEspecial() {
         this.nivel = this.nivel + 5;
-        return 'El atleta ve una nota pegada en el techo, usando el saliente del marco de la puerta escala hasta ella y la coge. Está escrita la contraseña en la nota.'
+        return `El atleta ve una nota pegada en el techo, usando el saliente del marco de la puerta escala hasta ella y la coge. Está escrita la contraseña en la nota. <br> El atleta ${this.nombre} ha subido de nivel, nivel actual: ${this.nivel}`
     }
     investigar() {
         throw new Error('Has tocado donde no debías. ¡Has muerto!')

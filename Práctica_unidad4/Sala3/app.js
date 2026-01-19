@@ -17,10 +17,11 @@ let output = document.getElementById('output')
 btnSoldado.addEventListener('click', () => {
     // leemos el nombre para poder iniciar el jugador
     let nombre = document.getElementById('nombre').value;
-    const unSoldado = new Soldado(nombre);
+    const unSoldado = new Soldado(nombre || 'Brian');
 
     output.innerHTML = `
         <h3>¿Qué acción deseas probar?</h3>
+        <p>La habilidad especial del Soldado es: ${unSoldado.especial}</p>
         <button type="button" id="btn-especial">Habilidad Especial</button>
         <button type="button" id="btn-investigar">Investigar</button>
     `;
@@ -39,9 +40,10 @@ btnSoldado.addEventListener('click', () => {
 });
 btnCientifico.addEventListener('click', () => {
     let nombre = document.getElementById('nombre').value;
-    const unCientifico = new Cientifico(nombre);
+    const unCientifico = new Cientifico(nombre || 'Einstein');
     output.innerHTML = `
         <h3>¿Qué acción deseas probar?</h3>
+        <p>La habilidad especial del científico es: ${unCientifico.especial}</p>
         <button type="button" id="btn-especial">Habilidad Especial</button>
         <button type="button" id="btn-investigar">Investigar</button>
     `;
@@ -59,9 +61,10 @@ btnCientifico.addEventListener('click', () => {
 });
 btnAtleta.addEventListener('click', () => {
     let nombre = document.getElementById('nombre').value;
-    const unAtleta = new Atleta(nombre);
+    const unAtleta = new Atleta(nombre || 'U. Bolt');
     output.innerHTML = `
         <h3>¿Qué acción deseas probar?</h3>
+        <p>La habilidad especial del atleta es: ${unAtleta.especial}</p>
         <button type="button" id="btn-especial">Habilidad Especial</button>
         <button type="button" id="btn-investigar">Investigar</button>
     `;

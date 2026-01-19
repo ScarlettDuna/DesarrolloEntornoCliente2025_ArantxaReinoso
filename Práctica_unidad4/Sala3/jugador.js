@@ -9,9 +9,9 @@ export default class Jugador {
     get nivel(){
         return this.#nivel;
     }
-    set nivel(kms) {
-        if (kms > this.#nivel) {
-            this.#nivel = kms
+    set nivel(add) {
+        if (typeof add === 'number') {
+            this.#nivel = add
         }
     }
 }
