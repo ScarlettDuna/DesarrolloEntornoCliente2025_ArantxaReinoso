@@ -1,0 +1,3 @@
+- Crear palancas visuales en vez de botones para los eventos de ratón con coordenadas
+- Delegación de eventos
+- Custom Event: Cuando se introduce el código correcto, se dispara un evento personalizado
