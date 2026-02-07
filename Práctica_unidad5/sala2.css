@@ -96,10 +96,17 @@ button:hover {
     margin: 4px 0;
     line-height: 1.3;
 }
+#eventos {
+    font-size: 13px;
+    color: lightgreen;
+    margin-top: 6px;
+}
 
 
 #mousedisplay {
     margin-top: 15px;
+    width: 50%;
+    justify-self: center;
     padding: 8px 12px;
     font-size: 14px;
     border-radius: 8px;

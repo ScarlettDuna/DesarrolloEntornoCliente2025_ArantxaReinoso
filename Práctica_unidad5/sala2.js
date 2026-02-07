@@ -1,6 +1,8 @@
-// Se puede ver la propagación dependiendo de donde pulses
+// Propagacion del body (se frena en palancas)
+const eventos = document.getElementById('eventos');
+
 document.body.addEventListener('click', () => {
-  console.log('Click en el body');
+  eventos.innerText = 'Burbuja activa: evento recibido en BODY';
 });
 
 
@@ -93,13 +95,10 @@ panelPalancas.addEventListener('click', (e) => {
     if (!boton.matches('button')) return;
     // evitar propagación del evento en el body
     e.stopPropagation();
-
+    eventos.innerText = 'Evento detenido en el panel de palancas';
     const letra = boton.textContent.slice(-1);
     sala2.cambiarPalanca(letra);
 });
-
-
-
 comprobar.addEventListener('click', () => {
   const ok = sala2.comprobarCombinacion();
   if (ok) {
