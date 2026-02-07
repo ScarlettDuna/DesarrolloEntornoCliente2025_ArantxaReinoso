@@ -63,9 +63,6 @@ let sala2 = {
 }
 
 let estado = document.querySelector('#estado')
-let palancaA = document.querySelector('.palA')
-let palancaB = document.querySelector('.palB')
-let palancaC = document.querySelector('.palC')
 let comprobar = document.querySelector('#comprobar')
 let mostrar = document.querySelector('.mostrar')
 let mensaje = document.querySelector('#mensaje')
@@ -79,35 +76,28 @@ panelPalancas.addEventListener('mousemove', (e) => {
   const x = e.offsetX;
   const y = e.offsetY;
   
-  console.log(`Ratón en panel → X: ${x}, Y: ${y}`);
-
-
-  panelPalancas.addEventListener('mousemove', (e) => {
-    mousedisplay.innerText = `Posición del ratón: X=${e.offsetX}, Y=${e.offsetY}`;
-  });
+  // console.log(`Ratón en panel → X: ${x}, Y: ${y}`);
+  mousedisplay.innerText = `Posición del ratón: X=${e.offsetX}, Y=${e.offsetY}`;
 
 });
 
 // Insertamos el segundo evento de ratón
-panelPalancas.addEventListener('click', () => {
-  // getBoundingClientRect() - devuelve el tamaño de un elemento 
+panelPalancas.addEventListener('click', (e) => {
+  // getBoundingClientRect() - MDN devuelve el tamaño de un elemento 
   // y su posición relativa respecto a la ventana de visualización
   const { width, height } = panelPalancas.getBoundingClientRect();
   mousedisplay.innerText = `Tamaño del panel: ${Math.round(width)} x ${Math.round(height)} px`;
+  // Delegación de eventos
+  const boton = e.target; // elemento real clicado
+
+    if (!boton.matches('button')) return;
+    // evitar propagación del evento en el body
+    e.stopPropagation();
+
+    const letra = boton.textContent.slice(-1);
+    sala2.cambiarPalanca(letra);
 });
 
-
-// Delegación de eventos
-panelPalancas.addEventListener('click', (e) => {
-  const boton = e.target;
-
-  if (!boton.matches('button')) return;
-  // evitar propagación del evento en el body
-  e.stopPropagation();
-
-  const letra = boton.textContent.slice(-1);
-  sala2.cambiarPalanca(letra);
-});
 
 
 comprobar.addEventListener('click', () => {
@@ -142,3 +132,27 @@ verIntentos.addEventListener('click', () => {
 // Muestra por consola las propiedades de algún objeto creando las variables con desestructuración.
 let {nombre, bloqueada} = sala2;
 console.log(`El objeto sala2 se llama '${nombre}' y ${bloqueada ? 'está bloquada' : 'no está bloqueada'}.`);
+
+// Eventos de teclado
+document.addEventListener('keydown', (e) => {
+  // Validación de caracteres alfanuméricos
+  if (/^[a-z0-9]$/i.test(e.key)) {
+    mousedisplay.innerText = `Tecla alfanumérica: ${e.key}`;
+  }
+
+  // Validación de teclas especiales
+  if (e.key === 'Enter') {
+    const ok = sala2.comprobarCombinacion();
+    mensaje.innerHTML = ok
+      ? `<span style="color: green">✔ Combinación correcta</span>`
+      : `<span style="color: red">✖ Combinación incorrecta</span>`;
+  }
+  if (e.ctrlKey) {
+    verIntentos.click();
+  }
+  if (e.shiftKey) {
+    estado.innerText = sala2.mostrarEstado();
+  }
+
+});
+
