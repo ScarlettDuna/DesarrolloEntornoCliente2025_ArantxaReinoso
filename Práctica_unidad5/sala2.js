@@ -1,3 +1,9 @@
+// Se puede ver la propagación dependiendo de donde pulses
+document.body.addEventListener('click', () => {
+  console.log('Click en el body');
+});
+
+
 let sala2 = {
   nombre: "El juego de las palancas",
   bloqueada: true,
@@ -65,15 +71,45 @@ let mostrar = document.querySelector('.mostrar')
 let mensaje = document.querySelector('#mensaje')
 let intentos = document.getElementById('intentos')
 
-palancaA.addEventListener('click', () => {
-  sala2.cambiarPalanca('A');
-})
-palancaB.addEventListener('click', () => {
-  sala2.cambiarPalanca('B');
-})
-palancaC.addEventListener('click', () => {
-  sala2.cambiarPalanca('C');
-})
+// Insertamos evento de ratón "mousemove" con uso de coordenadas
+const panelPalancas = document.querySelector('.palancas');
+let mousedisplay = document.getElementById('mousedisplay');
+
+panelPalancas.addEventListener('mousemove', (e) => {
+  const x = e.offsetX;
+  const y = e.offsetY;
+  
+  console.log(`Ratón en panel → X: ${x}, Y: ${y}`);
+
+
+  panelPalancas.addEventListener('mousemove', (e) => {
+    mousedisplay.innerText = `Posición del ratón: X=${e.offsetX}, Y=${e.offsetY}`;
+  });
+
+});
+
+// Insertamos el segundo evento de ratón
+panelPalancas.addEventListener('click', () => {
+  // getBoundingClientRect() - devuelve el tamaño de un elemento 
+  // y su posición relativa respecto a la ventana de visualización
+  const { width, height } = panelPalancas.getBoundingClientRect();
+  mousedisplay.innerText = `Tamaño del panel: ${Math.round(width)} x ${Math.round(height)} px`;
+});
+
+
+// Delegación de eventos
+panelPalancas.addEventListener('click', (e) => {
+  const boton = e.target;
+
+  if (!boton.matches('button')) return;
+  // evitar propagación del evento en el body
+  e.stopPropagation();
+
+  const letra = boton.textContent.slice(-1);
+  sala2.cambiarPalanca(letra);
+});
+
+
 comprobar.addEventListener('click', () => {
   const ok = sala2.comprobarCombinacion();
   if (ok) {
