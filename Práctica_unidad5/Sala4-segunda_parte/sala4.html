@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sala4.css">
     <title>Sala 4</title>
 </head>
 <body>
@@ -10,19 +11,22 @@
         <h2>Inserte la tarjeta correcta en el lector</h2>
         <div class="lector-tarj"></div>
         <div class="cont-tarj">
-            <div class="tarj1"></div>
-            <div class="tarj2"></div>
-            <div class="tarj4"></div>
+            <h3>Seleccione la tarjeta correcta</h3>
+            <div class="tarj1" draggable="true" data-correct="false"></div>
+            <div class="tarj2" draggable="true" data-correct="true"></div>
+            <div class="tarj3" draggable="true" data-correct="false"></div>
+
         </div>
     </div>
-    <!--Cuando se inserte la correcta se desbloquea el formulario-->
+    <h3>El formulario se desbloqueará al insertar la tarjeta correcta</h3>
     <form method="post">
-        <label for="user">User</label>
+        <label for="user">User (letras minúsculas y 4-8 caracteres)</label>
         <input type="text" name="user" id="user">
-        <label for="secret">Secret</label>
+        <p>Busca el secreto por la ventana, cuando lo encuentres copia y pega</p>
+        <label for="secret">Secret (3 letras mayúsculas + 2 números)</label>
         <input type="password" name="secret" id="secret">
         <button type="button"></button>
     </form>
-    
+    <div class="secreto"></div>
 </body>
 </html>

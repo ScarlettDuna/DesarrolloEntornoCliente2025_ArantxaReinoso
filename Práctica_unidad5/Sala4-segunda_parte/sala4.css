@@ -1,0 +1,31 @@
+body {
+  height: 200vh;
+}
+.tarjeta h2 {
+    text-align: center;
+}
+.lector-tarj {
+    width: 400px;
+    height: 150px;
+    border-radius: 20px;
+    border: 2px solid black;
+    margin: auto;
+}
+.cont-tarj {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100wh;
+    justify-content: center;
+    align-items: center;
+}
+.cont-tarj > div {
+    width: 350px;
+    height: 120px;
+    border-radius: 20px;
+    border: 2px solid black;
+    margin: 10px;
+}
+.cont-tarj h3 {
+    width: 100%;
+    text-align: center;
+}
