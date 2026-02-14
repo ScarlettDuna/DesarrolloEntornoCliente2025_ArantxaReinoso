@@ -1,15 +1,66 @@
-// Drag & drop → tarjetas → lector
 // Formulario bloqueado → se desbloquea al insertar la correcta
+let inputUser = document.getElementById('user');
+let inputSecreto = document.getElementById('secret');
+let boton = document.querySelector('button');
+
+function desbloquarFormulario(estado) {
+  inputUser.disabled = estado;
+  inputSecreto.disabled = estado;
+  boton.disabled = estado;
+}
+
+// Drag & drop → tarjetas → lector
+const lectorTarj = document.getElementById('lector-tarj');
+const tarjetas = document.querySelectorAll('[draggable="true"]');
+// Usamos el evento 'dragstart' para guardar el información de si es la tarjeta correcta
+tarjetas.forEach(tarjeta => {
+  tarjeta.addEventListener('dragstart', (e) => {
+    const esCorrecta = tarjeta.dataset.correct;
+    e.dataTransfer.setData('text/plain', esCorrecta);
+  });
+});
+lectorTarj.addEventListener('dragenter', () => {
+  lectorTarj.classList.add('activo');
+  lectorTarj.classList.remove('incorrecto');
+  lectorTarj.classList.remove('correcto');
+})
+
+lectorTarj.addEventListener('dragover', (e) => {
+  // prevenir default para permitir 'drop'
+  e.preventDefault();
+})
+lectorTarj.addEventListener('dragleave', () => {
+  lectorTarj.classList.remove('activo');
+});
+
+lectorTarj.addEventListener('drop', (e) => {
+  e.preventDefault();
+  const dato = e.dataTransfer.getData('text/plain')
+  lectorTarj.classList.remove('activo');
+  if (dato === 'true') {
+    lectorTarj.classList.add('correcto');
+    lectorTarj.innerText = 'Tarjeta correcta. Acceso concedido.';
+    desbloquarFormulario(false)
+    
+  } else {
+    lectorTarj.classList.add('incorrecto');
+    lectorTarj.innerText = 'Tarjeta incorrecta.';
+    desbloquarFormulario(true)
+  }
+})
+
+
 // Scroll para revelar pista
+const divSecreto = document.querySelector('.secreto');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 300) {
-    secreto.style.visibility = 'visible';
+    divSecreto.style.visibility = 'visible';
   }
 });
 
 // Clipboard para copiar código secreto
-secreto.addEventListener('click', () => {
-  navigator.clipboard.writeText(secreto.innerText);
+divSecreto.addEventListener('click', () => {
+  navigator.clipboard.writeText(divSecreto.innerText);
 });
 
 
@@ -35,7 +86,6 @@ function generarSecreto() {
   return resultado;
 }
 const secreto = generarSecreto();
-let inputSecreto = document.getElementById('secret');
 
 
 function validarSecreto() {
