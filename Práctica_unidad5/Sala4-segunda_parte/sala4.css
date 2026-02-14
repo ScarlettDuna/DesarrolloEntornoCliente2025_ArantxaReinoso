@@ -1,31 +1,152 @@
+/* Base general */
 body {
     height: 200vh;
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+    color: #e0f7ff;
 }
-.tarjeta h2 {
+
+/* Contenedor principal */
+.tarjeta {
+    padding: 30px;
     text-align: center;
 }
+
+.tarjeta h2 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00e5ff;
+}
+
+/* Lector */
 #lector-tarj {
     width: 400px;
     height: 150px;
     border-radius: 20px;
-    border: 2px solid black;
-    margin: auto;
+    border: 2px solid #00e5ff;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.4);
 }
+
+/* Estado leyendo */
+#lector-tarj.activo {
+    box-shadow: 0 0 20px #00e5ff;
+    border-color: #00e5ff;
+}
+
+/* Estado correcto */
+#lector-tarj.correcto {
+    border-color: #00ff88;
+    box-shadow: 0 0 25px #00ff88;
+    color: #00ff88;
+}
+
+/* Estado incorrecto */
+#lector-tarj.incorrecto {
+    border-color: #ff3b3b;
+    box-shadow: 0 0 25px #ff3b3b;
+    color: #ff3b3b;
+}
+
+/* Contenedor tarjetas */
 #cont-tarj {
     display: flex;
     flex-wrap: wrap;
-    width: 100wh;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
 }
-#cont-tarj > div {
-    width: 350px;
-    height: 120px;
-    border-radius: 20px;
-    border: 2px solid black;
-    margin: 10px;
-}
-#cont-tarj h3 {
+
+h3, #cont-tarj h3 {
     width: 100%;
     text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Tarjetas */
+#cont-tarj > div {
+    width: 250px;
+    height: 120px;
+    border-radius: 15px;
+    margin: 15px;
+    cursor: grab;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: linear-gradient(145deg, #1f1f1f, #2e2e2e);
+    border: 2px solid #555;
+}
+
+#cont-tarj > div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00e5ff;
+}
+
+#cont-tarj > div:active {
+    cursor: grabbing;
+}
+
+/* Formulario */
+form {
+    width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    border: 1px solid #00e5ff;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form input {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #00e5ff;
+    background-color: #111;
+    color: #00e5ff;
+}
+
+form input:disabled {
+    opacity: 0.5;
+}
+
+form button {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #00e5ff;
+    color: #000;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+form button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+form button:not(:disabled):hover {
+    background-color: #00bcd4;
+}
+
+/* Secreto oculto */
+.secreto {
+    margin-top: 350px;
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 4px;
+    user-select: text;
+
+    /* Camuflado inicialmente */
+    color: #2c5364; /* mismo tono que fondo */
+    transition: 0.5s ease;
+}
+
+/* Se revela ligeramente tras scroll */
+.secreto.contrast {
+    color: #e0f7ff;
 }

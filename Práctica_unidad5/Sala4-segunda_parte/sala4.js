@@ -49,26 +49,12 @@ lectorTarj.addEventListener('drop', (e) => {
   }
 })
 
-
-// Scroll para revelar pista
-const divSecreto = document.querySelector('.secreto');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    divSecreto.style.visibility = 'visible';
-  }
-});
-
-// Clipboard para copiar código secreto
-divSecreto.addEventListener('click', () => {
-  navigator.clipboard.writeText(divSecreto.innerText);
-});
-
-
-
+// Regrex para usuario y secreto
 let patronUser = /^[a-z]{4,8}$/
 let patronSecret = /^[A-Z]{3}\d{2}$/
 
 // Generar secreto
+const divSecreto = document.querySelector('.secreto');
 function generarSecreto() {
   const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const numeros = '0123456789';
@@ -82,10 +68,24 @@ function generarSecreto() {
   for (let i = 0; i < 2; i++) {
     resultado += numeros[Math.floor(Math.random() * numeros.length)];
   }
-
+  divSecreto.innerText = resultado
   return resultado;
 }
 const secreto = generarSecreto();
+
+
+// Scroll para revelar pista
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    divSecreto.classList.add('contrast');
+  }
+});
+
+// Clipboard para copiar código secreto
+divSecreto.addEventListener('click', () => {
+  navigator.clipboard.writeText(divSecreto.innerText);
+});
+
 
 
 function validarSecreto() {
