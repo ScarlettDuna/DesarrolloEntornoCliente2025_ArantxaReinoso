@@ -6,7 +6,6 @@ let boton = document.querySelector('button');
 function desbloquarFormulario(estado) {
   inputUser.disabled = estado;
   inputSecreto.disabled = estado;
-  boton.disabled = estado;
 }
 
 // Drag & drop → tarjetas → lector
@@ -87,22 +86,57 @@ divSecreto.addEventListener('click', () => {
 });
 
 
+// Solo si los patrones del user & del secreto son correctos se activa el botón 
+function validarFormulario(){
+  const userValido = patronUser.test(inputUser.value);
+  const secretValido = patronSecret.test(inputSecreto.value);
+  boton.disabled = !(userValido && secretValido);
 
-function validarSecreto() {
-    if (patronSecret.test(inputSecreto.value)) {
-        // validación visual en el fomulario
-        inputSecreto.style.borderColor = 'green';
-    } else {
-        inputSecreto.style.borderColor = 'red';
-    }
+  if (userValido) {
+    // validación visual en el fomulario
+    inputUser.classList.add('valido')
+    inputUser.classList.remove('invalido')
+  } else {
+    inputUser.classList.add('invalido')
+    inputUser.classList.remove('valido')
+  }
+  if (secretValido) {
+    inputSecreto.classList.add('valido')
+    inputSecreto.classList.remove('invalido')
+  } else {
+    inputSecreto.classList.add('invalido')
+    inputSecreto.classList.remove('valido')
+  }
 }
-// evento click que verifica el
-inputSecreto.addEventListener('change', () => {
-    validarSecreto()
+
+inputSecreto.addEventListener('input', () => {
+  validarFormulario()
+})
+inputUser.addEventListener('input', () => {
+  validarFormulario()
+})
+
+// Botón activo → comprueba secreto → siguiente reto
+let modoFinalActivo = false;
+const ganador = document.querySelector('.te-has-pasado')
+
+boton.addEventListener('click', () => {
+  if (inputSecreto.value === secreto) {
+    modoFinalActivo = true;
+    divSecreto.innerText = `Sistema inestable. Redimensiona la ventana para recalibrar.`;
+    divSecreto.classList.add('inestable')
+  } else {
+    boton.classList.add('error-boton');
+  }
 })
 
 // Evento resize
 window.addEventListener('resize', () => {
-  info.innerText = `Ventana: ${window.innerWidth} x ${window.innerHeight}`;
+  if (modoFinalActivo){
+    if (window.innerWidth < 600) {
+      document.body.classList.add('victoria')
+      ganador.innerText = `¡GANADOR! Te has pasado el juego`;
+    } 
+  }
 });
 
