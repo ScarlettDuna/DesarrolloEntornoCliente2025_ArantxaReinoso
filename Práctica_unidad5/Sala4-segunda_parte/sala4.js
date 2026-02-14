@@ -136,6 +136,12 @@ window.addEventListener('resize', () => {
     if (window.innerWidth < 600) {
       document.body.classList.add('victoria')
       ganador.innerText = `¡GANADOR! Te has pasado el juego`;
+
+      localStorage.setItem("sala4", "completada");
+      setTimeout(() => {
+        window.location.href = "../hub.html";
+      }, 5000)
+      
     } 
   }
 });

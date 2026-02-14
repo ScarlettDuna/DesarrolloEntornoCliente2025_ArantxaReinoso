@@ -1,0 +1,106 @@
+/* Reset suave */
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+    color: #e0f7ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Títulos */
+h1 {
+    margin-top: 60px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #00e5ff;
+}
+
+.vencedor {
+    height: 40px;
+    margin: 10px;
+    font-size: 20px;
+    color: #00ff88;
+    text-shadow: 0 0 10px #00ff88;
+}
+
+/* Contenedor menú */
+.menu {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(2, 220px);
+    gap: 30px;
+}
+
+/* Botones */
+.menu button {
+    padding: 20px;
+    font-size: 18px;
+    border-radius: 15px;
+    border: 2px solid #00e5ff;
+    background: rgba(0, 0, 0, 0.4);
+    color: #00e5ff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover solo si está activo */
+.menu button:not(:disabled):hover {
+    background: #00e5ff;
+    color: black;
+    box-shadow: 0 0 20px #00e5ff;
+    transform: scale(1.05);
+}
+
+/* Botones bloqueados */
+.menu button:disabled {
+    border-color: #444;
+    color: #555;
+    background: rgba(0, 0, 0, 0.2);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Botón reset */
+#reset {
+    margin-top: 60px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #ff3b3b;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#reset:hover {
+    background-color: #ff0000;
+    box-shadow: 0 0 15px #ff3b3b;
+}
+
+/* Estado ganador final */
+body.ganador {
+    background: magenta;
+    transition: background 0.6s ease;
+}
+
+body.ganador h1 {
+    color: white;
+}
+
+body.ganador .menu {
+    display: none;
+}
+
+body.ganador #reset {
+    background-color: rgba(0, 0, 0, 0.4);
+    font-size: 3rem;
+}
+
+body.ganador .vencedor {
+    font-size: 32px;
+    color: white;
+    text-shadow: 0 0 20px black;
+}

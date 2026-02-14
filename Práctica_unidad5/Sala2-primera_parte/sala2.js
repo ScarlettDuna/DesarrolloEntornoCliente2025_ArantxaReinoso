@@ -102,7 +102,12 @@ panelPalancas.addEventListener('click', (e) => {
 comprobar.addEventListener('click', () => {
   const ok = sala2.comprobarCombinacion();
   if (ok) {
-    mensaje.innerHTML = `<span style="color: green"> ✔ Combinación correcta</span>`
+    mensaje.innerHTML = `<span style="color: green"> ✔ Combinación correcta</span>`;
+    // Añadir info al localstorage para poder jugar desde sala hub
+        localStorage.setItem("sala2", "completada");
+        setTimeout(() => {
+            window.location.href = "../hub.html";
+        }, 5000)
   } else {
     mensaje.innerHTML = `<span style="color: red"> ✖ Combinación incorrecta</span>`
   }
@@ -142,9 +147,16 @@ document.addEventListener('keydown', (e) => {
   // Validación de teclas especiales
   if (e.key === 'Enter') {
     const ok = sala2.comprobarCombinacion();
-    mensaje.innerHTML = ok
-      ? `<span style="color: green">✔ Combinación correcta</span>`
-      : `<span style="color: red">✖ Combinación incorrecta</span>`;
+    if (ok) {
+      mensaje.innerHTML = `<span style="color: green"> ✔ Combinación correcta</span>`;
+      // Añadir info al localstorage para poder jugar desde sala hub
+          localStorage.setItem("sala2", "completada");
+          setTimeout(() => {
+              window.location.href = "../hub.html";
+          }, 5000)
+    } else {
+      mensaje.innerHTML = `<span style="color: red"> ✖ Combinación incorrecta</span>`
+    }
   }
   if (e.ctrlKey) {
     verIntentos.click();
