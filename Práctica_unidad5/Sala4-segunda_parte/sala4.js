@@ -1,7 +1,7 @@
 // Formulario bloqueado → se desbloquea al insertar la correcta
 let inputUser = document.getElementById('user');
 let inputSecreto = document.getElementById('secret');
-let boton = document.querySelector('button');
+let boton = document.querySelector('form button');
 
 function desbloquarFormulario(estado) {
   inputUser.disabled = estado;
@@ -110,6 +110,7 @@ function validarFormulario(){
 }
 
 inputSecreto.addEventListener('input', () => {
+  boton.classList.remove('error-boton');
   validarFormulario()
 })
 inputUser.addEventListener('input', () => {
@@ -117,10 +118,12 @@ inputUser.addEventListener('input', () => {
 })
 
 // Botón activo → comprueba secreto → siguiente reto
+const form = document.querySelector('form');
 let modoFinalActivo = false;
 const ganador = document.querySelector('.te-has-pasado')
 
-boton.addEventListener('click', () => {
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
   if (inputSecreto.value === secreto) {
     modoFinalActivo = true;
     divSecreto.innerText = `Sistema inestable. Redimensiona la ventana para recalibrar.`;
