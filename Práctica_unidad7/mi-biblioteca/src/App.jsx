@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import MostradorLibros from './Lector.jsx'
+import Lector from './Lector.jsx'
 import './App.css'
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <h1>La biblioteca de Arantxa</h1>
-      <MostradorLibros />
+      <Lector />
       <div className="card">
         <p>Haz click en el botón para contar cuantos libros hemos leido en común</p>
         <p>{count}</p>
