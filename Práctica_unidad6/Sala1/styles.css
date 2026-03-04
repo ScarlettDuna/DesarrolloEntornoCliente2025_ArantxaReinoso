@@ -1,0 +1,84 @@
+body {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: radial-gradient(circle, #1a1a1a, #000);
+    color: #eaeaea;
+    font-family: monospace;
+}
+h2 {
+    font-size: 22px;
+}
+p, label {
+    font-size: 18px;
+}
+#intentosUsados {
+    border: 1px solid darkcyan;
+    color: darkmagenta;
+    font-weight: bold;
+    margin: 5px;
+    padding: 5px;
+}
+
+#verPistas {
+    background-color: darkcyan;
+}
+
+#reiniciarSala {
+    background-color: darkmagenta;
+    color: antiquewhite;
+}
+.codigo {
+    padding: 15px;
+    display: inline-block;
+    width: 60%;
+    margin: 15px auto;
+    border-radius: 15px;
+    box-shadow: 2px 1px 4px darkcyan;
+}
+.pistas {
+    padding: 15px;
+    display: inline-block;
+    width: 60%;
+    margin: 15px auto;
+    border-radius: 15px;
+    box-shadow: 2px 1px 4px darkmagenta;
+}
+button {
+    border-radius: 8px;
+    border: none;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 6px cyan;
+}
+/* Animación en caso de error */
+.error {
+    animation: shake 0.5s;
+    background-color: #ffb3b3;
+}
+.acierto {
+    animation: shake 0.5s;
+    background-color: #008000;
+}
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+/* Iluminar pistas al aparecer */
+.pistas p {
+    animation: aparecer 0.4s ease;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
