@@ -1,4 +1,4 @@
-import datosJSON from './reading-data-clean.json';
+import datosJSON from '../reading-data-clean.json'
 
 export default function Lector() {
     const datosFormateados = JSON.parse(JSON.stringify(datosJSON), (key, value) => {

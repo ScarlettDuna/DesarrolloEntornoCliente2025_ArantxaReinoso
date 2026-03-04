@@ -1,21 +1,11 @@
-import { useState } from 'react'
-import Lector from './Lector.jsx'
-import './App.css'
+import Chat from './components/Chat.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <h1>La biblioteca de Arantxa</h1>
-      <Lector />
-      <div className="card">
-        <p>Haz click en el botón para contar cuantos libros hemos leido en común</p>
-        <p>{count}</p>
-        <button onClick={() => setCount((count) => count + 1)}>
-          Añade uno
-        </button>
-      </div>
+      <Chat/>
     </>
   )
 }
