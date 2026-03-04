@@ -1,0 +1,6 @@
+{
+  "editor.fontLigatures": false,
+  "editor.wordWrap": "on",
+  "editor.wrappingIndent": "indent",
+  "editor.rulers": [100]
+}
