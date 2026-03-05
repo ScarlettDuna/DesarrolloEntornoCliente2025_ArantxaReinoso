@@ -437,7 +437,7 @@
     "Idioma": "",
     "Comentario": "",
     "Puntuación ": 0,
-    "Géneros": "",
+    "Géneros": "Thriller, novela negra",
     "Personajes": "",
     "Prestado?": ""
   },
@@ -450,7 +450,7 @@
     "Idioma": "Español",
     "Comentario": "",
     "Puntuación ": 0,
-    "Géneros": "",
+    "Géneros": "Fantasía",
     "Personajes": "",
     "Prestado?": ""
   },
@@ -463,7 +463,7 @@
     "Idioma": "Español",
     "Comentario": "",
     "Puntuación ": 0,
-    "Géneros": "",
+    "Géneros": "Fantasía",
     "Personajes": "",
     "Prestado?": ""
   },
@@ -476,7 +476,7 @@
     "Idioma": "Español",
     "Comentario": "",
     "Puntuación ": 0,
-    "Géneros": "",
+    "Géneros": "Fantasía",
     "Personajes": "",
     "Prestado?": ""
   },
@@ -528,7 +528,7 @@
     "Idioma": "Español",
     "Comentario": "",
     "Puntuación ": 0,
-    "Géneros": "",
+    "Géneros": "Novela histórica",
     "Personajes": "",
     "Prestado?": ""
   },
@@ -540,8 +540,8 @@
     "Libro de?": "Físico",
     "Idioma": "Español",
     "Comentario": "Regalo de Judith",
-    "Puntuación ": 0,
-    "Géneros": "",
+    "Puntuación ": 4,
+    "Géneros": "Gráfica",
     "Personajes": "",
     "Prestado?": ""
   },
@@ -654,12 +654,12 @@
     "Autor": "Rachel Reid",
     "Fecha lectura": "",
     "Leido": "",
-    "Libro de?": "",
+    "Libro de?": "Físico",
     "Idioma": "Inglés",
     "Comentario": "",
     "Puntuación ": 0,
-    "Géneros": "",
-    "Personajes": "",
+    "Géneros": "Romance, LGTB, Deportes",
+    "Personajes": "Ilya & Shane",
     "Prestado?": ""
   },
   {
@@ -773,8 +773,8 @@
     "Leido": "Empezado",
     "Libro de?": "Prestado",
     "Idioma": "Inglés",
-    "Comentario": "",
-    "Puntuación ": 0,
+    "Comentario": "Maravilloso",
+    "Puntuación ": 5,
     "Géneros": "Distopia, ciencia ficcion",
     "Personajes": "C. Snow, Lucy Gray",
     "Prestado?": "Devolver a Ana "
@@ -850,7 +850,7 @@
     "Fecha lectura": "",
     "Leido": "",
     "Libro de?": "",
-    "Idioma": "",
+    "Idioma": "Español",
     "Comentario": "",
     "Puntuación ": 0,
     "Géneros": "",

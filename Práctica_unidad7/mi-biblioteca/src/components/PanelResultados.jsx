@@ -1,6 +1,6 @@
 export default function PanelResultados({ resultadosBusqueda }) {
   return (
-    <div style={{ flex: 1, borderLeft: "1px solid #ddd", paddingLeft: "20px" }}>
+    <div style={{ flex: 1 }} className="panel-resultados">
       {/* Se ha buscdo y hay resutados*/}
       {resultadosBusqueda.length > 0 && (
         <div>

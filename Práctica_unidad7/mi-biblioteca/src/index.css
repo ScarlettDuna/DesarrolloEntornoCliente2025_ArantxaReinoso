@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  width: 100%;
+  max-width: 1200px;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -25,20 +29,21 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  justify-content: center;
+  align-items: flex-start;
   min-height: 100vh;
+  padding: 40px 20px;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 3em;
   line-height: 1.1;
 }
 
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.6em 1em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -56,16 +61,14 @@ button:focus-visible {
 ul li {
   list-style: none;
 }
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.app-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: start;
 }
+.panel-resultados {
+  border-left: 1px solid rgb(236, 230, 230);
+  padding-left: 30px;
+}
+
+

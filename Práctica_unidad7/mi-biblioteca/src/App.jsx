@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <h1>La biblioteca de Arantxa</h1>
-      <div style={{ display: "flex", gap: "20px", alignItems: "flex-start" }}>
+      <div style={{ display: "flex", gap: "20px", alignItems: "flex-start" }} className='app-layout'>
       <Chat setResultadosBusqueda={setResultadosBusqueda} />
       <PanelResultados resultadosBusqueda={resultadosBusqueda}/>
       </div>
