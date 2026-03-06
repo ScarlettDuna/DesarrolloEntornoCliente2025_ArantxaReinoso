@@ -33,6 +33,7 @@ export default function Chat({ setResultadosBusqueda }) {
     if (nuevaVista === "buscar") addMensaje("bot", "Vale. ¿Buscamos por título o por autor?");
     if (nuevaVista === "recomendar") addMensaje("bot", "Perfecto. ¿Qué mood tienes hoy?");
     if (nuevaVista === "leidos") addMensaje("bot", "Estos son tus libros leídos:");
+    if (nuevaVista === "noleidos") addMensaje("bot", "Estos son tus libros pendientes de leer:");
   } 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -106,11 +107,20 @@ export default function Chat({ setResultadosBusqueda }) {
         <div>
           <button onClick={() => irA("menu", "Volver al menú")}>⬅ Volver</button>
           <div style={{ marginTop: 12 }}>
-            <Lector />
+            <Lector mostrarLeidos={true} />
           </div>
         </div>
       )}
 
-    </div>
-  );
-}
+      {vista === "noleidos" && (
+        <div>
+          <button onClick={() => irA("menu", "Volver al menú")}>⬅ Volver</button>
+          <div style={{ marginTop: 12 }}>
+            <Lector mostrarLeidos={false} />
+          </div>
+        </div>
+      )}
+
+      </div>
+      );
+      }

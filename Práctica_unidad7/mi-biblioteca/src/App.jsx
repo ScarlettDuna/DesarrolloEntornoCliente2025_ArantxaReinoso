@@ -1,19 +1,14 @@
-import Chat from './components/Chat.jsx'
-import PanelResultados from './components/PanelResultados.jsx'
-import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/Home.jsx';
+import Asistente from './components/Asistente.jsx';
 
 function App() {
-  const [resultadosBusqueda, setResultadosBusqueda] = useState([])  
-
   return (
-    <>
-      <h1>La biblioteca de Arantxa</h1>
-      <div style={{ display: "flex", gap: "20px", alignItems: "flex-start" }} className='app-layout'>
-      <Chat setResultadosBusqueda={setResultadosBusqueda} />
-      <PanelResultados resultadosBusqueda={resultadosBusqueda}/>
-      </div>
-    </>
-  )
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/chat" element={<Asistente />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
